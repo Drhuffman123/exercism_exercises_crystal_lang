@@ -1,0 +1,6 @@
+./lib/*.*
+./bin/*.*
+shard.lock
+.git/*.*
+.github/*.*
+.spectator-failures
