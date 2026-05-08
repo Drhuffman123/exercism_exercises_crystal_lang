@@ -13,14 +13,13 @@ class Library
       if character == 'A'
         'Z'
       elsif character == 'a'
-        'z'    
+        'z'
       else
         character.pred
       end
     else
       character
     end
-  
   end
 
   def self.decrypt_text(text : String) : String
