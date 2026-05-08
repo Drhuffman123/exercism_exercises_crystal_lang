@@ -78,6 +78,3 @@ describe Library do
     end
   end
 end
-
-
-
