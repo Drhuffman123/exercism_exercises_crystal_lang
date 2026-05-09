@@ -47,17 +47,20 @@ module Blackjack
     # If you have a pair of aces you must always split them.
     if card1 == "ace" && card2 == "ace"
       "P"
+
     # If you have a Blackjack (two cards that sum up to a value of 21),
     #   and the dealer does not have an ace, a figure or a ten 
     #   then you automatically win.
     elsif (parse_card(card1) + parse_card(card2)) == 21 && !["ace", "ten", "jack", "queen", "king"].includes?(dealer_card)
       "W"
+
     # If the dealer does have any of those cards then you'll have to stand and wait for the reveal of the other card.
     elsif ["ace", "ten", "jack", "queen", "king"].includes?(dealer_card)
       "S" # "H"
     # If your cards sum up to a value within the range [17, 20] you should always stand.
     elsif [17, 20].includes?(parse_card(card1) + parse_card(card2))
       "S2"
+
     # If your cards sum up to a value within the range [12, 16] you should always stand 
     #   unless the dealer has a 7 or higher, in which case you should always hit.
     elsif [12, 16].includes?(parse_card(card1) + parse_card(card2))
@@ -66,6 +69,7 @@ module Blackjack
       else
         "S"
       end
+
     # If your cards sum up to 11 or lower you should always hit.
     elsif (2..11).includes?(parse_card(card1) + parse_card(card2))
       "H"
