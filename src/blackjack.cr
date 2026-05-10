@@ -135,12 +135,14 @@ module Blackjack
       # sum == 13 vs 6
       #            10               3                        6
       "S6x"
+
+      ##########WHYGOINE?##########
     elsif card1 == "king" && card2 == "two" && dealer_card == "six"
       # sum == 12 vs 6
       #            10               2                        6
       "S7x"
+      ##########WHYGOINE?##########
 
-      ##########
 
       # elsif (dealer_card == "seven") && (card1 == "jack" || card2 == "jack") && (parse_card(card1) + parse_card(card2)) < 17
       #   # (card1 == "jack" || card2 == "jack") && (parse_card(card1) < 7 || parse_card(card2) < 7) && (dealer_card == "seven")
@@ -249,8 +251,9 @@ module Blackjack
 
     # _is_ready = 0
     # _is_ready = 1
-    _is_ready = 0
+    _is_ready = 1
     if _is_ready == 1
+      # TO INCORPORATE:...
       if dealer_card == "ace" && card1 == "ace" && card2 == "ace"
         "P" # Split (P)
       elsif dealer_card == "seven" && ((card1 == "jack" && parse_card(card1) < 7) || (card1 == "jack" && parse_card(card2) < 7))
@@ -261,20 +264,29 @@ module Blackjack
         # Failure/Error: Blackjack.first_turn("three", "jack", "seven").should eq "H"
         # Failure/Error: Blackjack.first_turn("two", "jack", "seven").should eq "H"
 
-      elsif dealer_card == "ace" && ((card1 == "ace" && card2 == "king") || (card1 == "king" && card2 == "ace"))
-        "W" # Automatically win (W)
+      # (NONE)
+      #   "W" # Automatically win (W)
 
-      elsif dealer_card == "six" && ((card1 == "king" && card2 == "two") || (card1 == "two" && card2 == "king"))
+      elsif dealer_card == "ace" && ((card1 == "king" && card1 == "ace") || (card1 == "ace" && card2 == "king"))
         "S" # Stand (S)
-        # Failure/Error: Blackjack.first_turn("ace", "king", "ace").should eq "S"
+      ##   # Failure/Error: Blackjack.first_turn("ace", "king", "ace").should eq "S"
+      
 
+      elsif dealer_card == "queen" && ((card1 == "jack" && card2 == "ace") || (card1 == "ace" && card2 == "jack"))
+        "S" # Stand (S)
         # Failure/Error: Blackjack.first_turn("jack", "ace", "queen").should eq "S"
-        
+
+      elsif dealer_card == "seven" && ((card1 == "jack" && parse_card(card2) < 8) || (parse_card(card1) < 8 && card2 == "jack"))
+        "H" # Stand (S)
+
+      elsif dealer_card == "six" && ((card1 == "king" && parse_card(card2) < 7) || (parse_card(card1) < 7 && card2 == "king"))
+        "S" # Stand (S)
         # Failure/Error: Blackjack.first_turn("king", "six", "six").should eq "S"
         # Failure/Error: Blackjack.first_turn("king", "five", "six").should eq "S"
         # Failure/Error: Blackjack.first_turn("king", "four", "six").should eq "S"
         # Failure/Error: Blackjack.first_turn("king", "three", "six").should eq "S"
 
+      # ...TO INCORPORATE!
       else
         check_player_card(card1, card2) ||
           check_dealer_card(dealer_card) ||
