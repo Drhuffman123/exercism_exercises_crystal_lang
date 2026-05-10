@@ -6,55 +6,55 @@ describe Blackjack do
     it "test 1" do
       Blackjack.parse_card("ace").should eq(11)
     end
-    
+
     it "test 2" do
       Blackjack.parse_card("two").should eq(2)
     end
-    
+
     it "test 3" do
       Blackjack.parse_card("three").should eq(3)
     end
-    
+
     it "test 4" do
       Blackjack.parse_card("four").should eq(4)
     end
-    
+
     it "test 5" do
       Blackjack.parse_card("five").should eq(5)
     end
-    
+
     it "test 6" do
       Blackjack.parse_card("six").should eq(6)
     end
-    
+
     it "test 7" do
       Blackjack.parse_card("seven").should eq(7)
     end
-    
+
     it "test 8" do
       Blackjack.parse_card("eight").should eq(8)
     end
-    
+
     it "test 9" do
       Blackjack.parse_card("nine").should eq(9)
     end
-    
+
     it "test 10" do
       Blackjack.parse_card("ten").should eq(10)
     end
-    
+
     it "test 11" do
       Blackjack.parse_card("jack").should eq(10)
     end
-    
+
     it "test 12" do
       Blackjack.parse_card("queen").should eq(10)
     end
-    
+
     it "test 13" do
       Blackjack.parse_card("king").should eq(10)
     end
-    
+
     it "test 14" do
       Blackjack.parse_card("joker").should eq(0)
     end
@@ -116,11 +116,11 @@ describe Blackjack do
     end
 
     it "test 28" do
-      #      Blackjack.first_turn("two", "two", "ace").should eq "H"
+      Blackjack.first_turn("two", "two", "ace").should eq "H"
     end
 
     it "test 29" do
-      #      Blackjack.first_turn("five", "five", "ace").should eq "H"
+      Blackjack.first_turn("five", "five", "ace").should eq "H"
     end
 
     it "test 30" do
@@ -160,47 +160,47 @@ describe Blackjack do
     end
 
     it "test 39" do
-      #      Blackjack.first_turn("six", "jack", "seven").should eq "H"
+      Blackjack.first_turn("six", "jack", "seven").should eq "H"
     end
 
     it "test 40" do
-      #      Blackjack.first_turn("six", "jack", "ace").should eq "H"
+      Blackjack.first_turn("six", "jack", "ace").should eq "H"
     end
 
     it "test 41" do
-      #      Blackjack.first_turn("king", "five", "six").should eq "S"
+      Blackjack.first_turn("king", "five", "six").should eq "S"
     end
 
     it "test 42" do
-      #      Blackjack.first_turn("five", "jack", "seven").should eq "H"
+      Blackjack.first_turn("five", "jack", "seven").should eq "H"
     end
 
     it "test 43" do
-      #      Blackjack.first_turn("five", "queen", "queen").should eq "H"
+      Blackjack.first_turn("five", "queen", "queen").should eq "H"
     end
 
     it "test 44" do
-      #      Blackjack.first_turn("king", "four", "six").should eq "S"
+      Blackjack.first_turn("king", "four", "six").should eq "S"
     end
 
     it "test 45" do
-      #      Blackjack.first_turn("four", "jack", "seven").should eq "H"
+      Blackjack.first_turn("four", "jack", "seven").should eq "H"
     end
 
     it "test 46" do
-      #      Blackjack.first_turn("four", "queen", "queen").should eq "H"
+      Blackjack.first_turn("four", "queen", "queen").should eq "H"
     end
 
     it "test 47" do
-      #      Blackjack.first_turn("king", "three", "six").should eq "S"
+      Blackjack.first_turn("king", "three", "six").should eq "S"
     end
 
     it "test 48" do
-      #      Blackjack.first_turn("three", "jack", "seven").should eq "H"
+      Blackjack.first_turn("three", "jack", "seven").should eq "H"
     end
 
     it "test 49" do
-      #      Blackjack.first_turn("three", "queen", "queen").should eq "H"
+      Blackjack.first_turn("three", "queen", "queen").should eq "H"
     end
 
     it "test 50" do
@@ -208,15 +208,15 @@ describe Blackjack do
     end
 
     it "test 51" do
-      #      Blackjack.first_turn("two", "jack", "seven").should eq "H"
+      Blackjack.first_turn("two", "jack", "seven").should eq "H"
     end
 
     it "test 52" do
-      #      Blackjack.first_turn("two", "queen", "queen").should eq "H"
+      Blackjack.first_turn("two", "queen", "queen").should eq "H"
     end
 
     it "test 53" do
-      #      Blackjack.first_turn("two", "nine", "king").should eq "H"
+      Blackjack.first_turn("two", "nine", "king").should eq "H"
     end
 
     it "test 54" do
@@ -224,7 +224,7 @@ describe Blackjack do
     end
 
     it "test 55" do
-      #      Blackjack.first_turn("two", "three", "queen").should eq "H"
+      Blackjack.first_turn("two", "three", "queen").should eq "H"
     end
 
     it "test 56" do

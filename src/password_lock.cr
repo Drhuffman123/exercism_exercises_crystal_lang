@@ -28,8 +28,6 @@ class PasswordLock
   def unlock?(pw : Float64 | Int32 | String)
     if pw == @b4locked_password
       "Unlocked"
-    # elsif pw == encrypted(@password)
-    #   "Unlocked"
     else
       nil
     end

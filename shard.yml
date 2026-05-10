@@ -18,6 +18,13 @@ version: 0.1.10
 
 # license: MIT
 
+# dependencies:
+#   cyclomatic_complexity:
+#     # https://github.com/JadeKharats/cyclomatic_complexity
+#     github: 
+#                                  jadekharats/cyclomatic_complexity
+#     # version: ~> 0.1.0
+
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba

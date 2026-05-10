@@ -61,7 +61,7 @@ describe PasswordLock do
       pasword_lock = PasswordLock.new(12345)
       pasword_lock.encrypt
       pasword_lock.@password.should eq 6172
-    end    
+    end
   end
 
   context "Task 3" do
@@ -95,7 +95,7 @@ describe PasswordLock do
       pasword_lock.encrypt
       pasword_lock.unlock?(23231.422).should eq "Unlocked"
     end
-    
+
     it "Test 15" do
       pasword_lock = PasswordLock.new(23231.422)
       pasword_lock.encrypt
