@@ -108,7 +108,7 @@ module Blackjack
     end
   end
 
-  def self.handle_odd_cases(card1, card2, dealer_card)
+  def self.handle_tbd_cases(card1, card2, dealer_card)
     # If you have a pair of aces you must always split them.
     if card1 == "ace" && card2 == "ace"
       "P"
@@ -199,7 +199,7 @@ module Blackjack
     # If the dealer does have any of those cards (ace, a figure or a ten) then you'll have to stand and wait for the reveal of the other card.
     # If your cards sum up to a value within the range [12, 16] you should always stand unless the dealer has a 7 or higher, in which case you should always hit.
 
-    handle_odd_cases(card1, card2, dealer_card) ||
+    handle_tbd_cases(card1, card2, dealer_card) ||
       check_player_card(card1, card2) ||
       check_dealer_card(dealer_card) ||
       check_depends(dealer_card, card1, card2)
