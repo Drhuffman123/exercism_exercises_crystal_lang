@@ -60,7 +60,7 @@ describe Blackjack do
     end
   end
 
-  context "Test 1" do
+  context "Test 2" do
     it "test 15" do
       Blackjack.card_range("two", "two").should eq("low")
     end
@@ -102,133 +102,292 @@ describe Blackjack do
     end
   end
 
-  context "Test 1" do
-    it "test 25" do
-      Blackjack.first_turn("ace", "ace", "ace").should eq "P"
+
+  context "Test 3" do
+
+    hide_by_test_number = 1
+    
+    if hide_by_test_number != 1
+      context "by test number" do
+        it "test 25" do
+          Blackjack.first_turn("ace", "ace", "ace").should eq "P"
+        end
+
+        it "test 26" do
+          Blackjack.first_turn("jack", "jack", "ace").should eq "S"
+        end
+
+        it "test 27" do
+          Blackjack.first_turn("queen", "queen", "ace").should eq "S"
+        end
+
+        it "test 28" do
+          Blackjack.first_turn("two", "two", "ace").should eq "H"
+        end
+
+        it "test 29" do
+          Blackjack.first_turn("five", "five", "ace").should eq "H"
+        end
+
+        it "test 30" do
+          Blackjack.first_turn("ace", "king", "ace").should eq "S"
+        end
+
+        it "test 31" do
+          Blackjack.first_turn("jack", "ace", "queen").should eq "S"
+        end
+
+        it "test 32" do
+          Blackjack.first_turn("ten", "ace", "five").should eq "W"
+        end
+
+        it "test 33" do
+          Blackjack.first_turn("ten", "ace", "nine").should eq "W"
+        end
+
+        it "test 34" do
+          Blackjack.first_turn("ten", "jack", "ace").should eq "S"
+        end
+
+        it "test 35" do
+          Blackjack.first_turn("nine", "king", "ace").should eq "S"
+        end
+
+        it "test 36" do
+          Blackjack.first_turn("eight", "queen", "ace").should eq "S"
+        end
+
+        it "test 37" do
+          Blackjack.first_turn("seven", "jack", "ace").should eq "S"
+        end
+
+        it "test 38" do
+          Blackjack.first_turn("king", "six", "six").should eq "S"
+        end
+
+        it "test 39" do
+          Blackjack.first_turn("six", "jack", "seven").should eq "H"
+        end
+
+        it "test 40" do
+          Blackjack.first_turn("six", "jack", "ace").should eq "H"
+        end
+
+        it "test 41" do
+          Blackjack.first_turn("king", "five", "six").should eq "S"
+        end
+
+        it "test 42" do
+          Blackjack.first_turn("five", "jack", "seven").should eq "H"
+        end
+
+        it "test 43" do
+          Blackjack.first_turn("five", "queen", "queen").should eq "H"
+        end
+
+        it "test 44" do
+          Blackjack.first_turn("king", "four", "six").should eq "S"
+        end
+
+        it "test 45" do
+          Blackjack.first_turn("four", "jack", "seven").should eq "H"
+        end
+
+        it "test 46" do
+          Blackjack.first_turn("four", "queen", "queen").should eq "H"
+        end
+
+        it "test 47" do
+          Blackjack.first_turn("king", "three", "six").should eq "S"
+        end
+
+        it "test 48" do
+          Blackjack.first_turn("three", "jack", "seven").should eq "H"
+        end
+
+        it "test 49" do
+          Blackjack.first_turn("three", "queen", "queen").should eq "H"
+        end
+
+        it "test 50" do
+          Blackjack.first_turn("king", "two", "six").should eq "S"
+        end
+
+        it "test 51" do
+          Blackjack.first_turn("two", "jack", "seven").should eq "H"
+        end
+
+        it "test 52" do
+          Blackjack.first_turn("two", "queen", "queen").should eq "H"
+        end
+
+        it "test 53" do
+          Blackjack.first_turn("two", "nine", "king").should eq "H"
+        end
+
+        it "test 54" do
+          Blackjack.first_turn("two", "eight", "two").should eq "H"
+        end
+
+        it "test 55" do
+          Blackjack.first_turn("two", "three", "queen").should eq "H"
+        end
+
+        it "test 56" do
+          Blackjack.first_turn("two", "two", "five").should eq "H"
+        end
+      end
     end
 
-    it "test 26" do
-      Blackjack.first_turn("jack", "jack", "ace").should eq "S"
+    ##########
+    context "check_depends" do
     end
 
-    it "test 27" do
-      Blackjack.first_turn("queen", "queen", "ace").should eq "S"
+    context "check_dealer" do
     end
 
-    it "test 28" do
-      Blackjack.first_turn("two", "two", "ace").should eq "H"
+    context "check_player" do
+    end
+    ##########
+
+    context "all for case S" do
+      it "test 26" do
+        Blackjack.first_turn("jack", "jack", "ace").should eq "S"
+      end
+
+      it "test 27" do
+        Blackjack.first_turn("queen", "queen", "ace").should eq "S"
+      end
+
+      it "test 30" do
+        Blackjack.first_turn("ace", "king", "ace").should eq "S"
+      end
+
+      it "test 31" do
+        Blackjack.first_turn("jack", "ace", "queen").should eq "S"
+      end
+
+      it "test 34" do
+        Blackjack.first_turn("ten", "jack", "ace").should eq "S"
+      end
+
+      it "test 35" do
+        Blackjack.first_turn("nine", "king", "ace").should eq "S"
+      end
+
+      it "test 36" do
+        Blackjack.first_turn("eight", "queen", "ace").should eq "S"
+      end
+
+      it "test 37" do
+        Blackjack.first_turn("seven", "jack", "ace").should eq "S"
+      end
+
+      it "test 38" do
+        Blackjack.first_turn("king", "six", "six").should eq "S"
+      end
+
+      it "test 41" do
+        Blackjack.first_turn("king", "five", "six").should eq "S"
+      end
+
+      it "test 44" do
+        Blackjack.first_turn("king", "four", "six").should eq "S"
+      end
+
+      it "test 47" do
+        Blackjack.first_turn("king", "three", "six").should eq "S"
+      end
+
+      it "test 50" do
+        Blackjack.first_turn("king", "two", "six").should eq "S"
+      end
     end
 
-    it "test 29" do
-      Blackjack.first_turn("five", "five", "ace").should eq "H"
+    context "all for case H" do
+      it "test 28" do
+        Blackjack.first_turn("two", "two", "ace").should eq "H"
+      end
+
+      it "test 29" do
+        Blackjack.first_turn("five", "five", "ace").should eq "H"
+      end
+
+      it "test 39" do
+        Blackjack.first_turn("six", "jack", "seven").should eq "H"
+      end
+
+      it "test 40" do
+        Blackjack.first_turn("six", "jack", "ace").should eq "H"
+      end
+
+      it "test 42" do
+        Blackjack.first_turn("five", "jack", "seven").should eq "H"
+      end
+
+      it "test 43" do
+        Blackjack.first_turn("five", "queen", "queen").should eq "H"
+      end
+
+      it "test 45" do
+        Blackjack.first_turn("four", "jack", "seven").should eq "H"
+      end
+
+      it "test 46" do
+        Blackjack.first_turn("four", "queen", "queen").should eq "H"
+      end
+
+      it "test 48" do
+        Blackjack.first_turn("three", "jack", "seven").should eq "H"
+      end
+
+      it "test 49" do
+        Blackjack.first_turn("three", "queen", "queen").should eq "H"
+      end
+
+      it "test 51" do
+        Blackjack.first_turn("two", "jack", "seven").should eq "H"
+      end
+
+      it "test 52" do
+        Blackjack.first_turn("two", "queen", "queen").should eq "H"
+      end
+
+      it "test 53" do
+        Blackjack.first_turn("two", "nine", "king").should eq "H"
+      end
+
+      it "test 54" do
+        Blackjack.first_turn("two", "eight", "two").should eq "H"
+      end
+
+      it "test 55" do
+        Blackjack.first_turn("two", "three", "queen").should eq "H"
+      end
+
+      it "test 56" do
+        Blackjack.first_turn("two", "two", "five").should eq "H"
+      end
     end
 
-    it "test 30" do
-      Blackjack.first_turn("ace", "king", "ace").should eq "S"
+    context "all for case P" do
+      it "test 25" do
+        Blackjack.first_turn("ace", "ace", "ace").should eq "P"
+      end
     end
 
-    it "test 31" do
-      Blackjack.first_turn("jack", "ace", "queen").should eq "S"
+    context "all for case W" do
+      it "test 32" do
+        Blackjack.first_turn("ten", "ace", "five").should eq "W"
+      end
+
+      it "test 33" do
+        Blackjack.first_turn("ten", "ace", "nine").should eq "W"
+      end
     end
 
-    it "test 32" do
-      Blackjack.first_turn("ten", "ace", "five").should eq "W"
-    end
-
-    it "test 33" do
-      Blackjack.first_turn("ten", "ace", "nine").should eq "W"
-    end
-
-    it "test 34" do
-      Blackjack.first_turn("ten", "jack", "ace").should eq "S"
-    end
-
-    it "test 35" do
-      Blackjack.first_turn("nine", "king", "ace").should eq "S"
-    end
-
-    it "test 36" do
-      Blackjack.first_turn("eight", "queen", "ace").should eq "S"
-    end
-
-    it "test 37" do
-      Blackjack.first_turn("seven", "jack", "ace").should eq "S"
-    end
-
-    it "test 38" do
-      Blackjack.first_turn("king", "six", "six").should eq "S"
-    end
-
-    it "test 39" do
-      Blackjack.first_turn("six", "jack", "seven").should eq "H"
-    end
-
-    it "test 40" do
-      Blackjack.first_turn("six", "jack", "ace").should eq "H"
-    end
-
-    it "test 41" do
-      Blackjack.first_turn("king", "five", "six").should eq "S"
-    end
-
-    it "test 42" do
-      Blackjack.first_turn("five", "jack", "seven").should eq "H"
-    end
-
-    it "test 43" do
-      Blackjack.first_turn("five", "queen", "queen").should eq "H"
-    end
-
-    it "test 44" do
-      Blackjack.first_turn("king", "four", "six").should eq "S"
-    end
-
-    it "test 45" do
-      Blackjack.first_turn("four", "jack", "seven").should eq "H"
-    end
-
-    it "test 46" do
-      Blackjack.first_turn("four", "queen", "queen").should eq "H"
-    end
-
-    it "test 47" do
-      Blackjack.first_turn("king", "three", "six").should eq "S"
-    end
-
-    it "test 48" do
-      Blackjack.first_turn("three", "jack", "seven").should eq "H"
-    end
-
-    it "test 49" do
-      Blackjack.first_turn("three", "queen", "queen").should eq "H"
-    end
-
-    it "test 50" do
-      Blackjack.first_turn("king", "two", "six").should eq "S"
-    end
-
-    it "test 51" do
-      Blackjack.first_turn("two", "jack", "seven").should eq "H"
-    end
-
-    it "test 52" do
-      Blackjack.first_turn("two", "queen", "queen").should eq "H"
-    end
-
-    it "test 53" do
-      Blackjack.first_turn("two", "nine", "king").should eq "H"
-    end
-
-    it "test 54" do
-      Blackjack.first_turn("two", "eight", "two").should eq "H"
-    end
-
-    it "test 55" do
-      Blackjack.first_turn("two", "three", "queen").should eq "H"
-    end
-
-    it "test 56" do
-      Blackjack.first_turn("two", "two", "five").should eq "H"
-    end
+    # it "CHECK" do
+    #   Blackjack.parse_card("jack").should eq 10
+    # end
   end
 end
