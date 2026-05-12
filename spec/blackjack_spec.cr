@@ -102,11 +102,9 @@ describe Blackjack do
     end
   end
 
-
   context "Test 3" do
-
     hide_by_test_number = 1
-    
+
     if hide_by_test_number != 1
       context "by test number" do
         it "test 25" do
@@ -240,17 +238,7 @@ describe Blackjack do
     end
 
     ##########
-    context "check_depends" do
-    end
-
-    context "check_dealer" do
-    end
-
-    context "check_player" do
-    end
-    ##########
-
-    context "all for case S" do
+    context "check_Stand_S" do
       it "test 26" do
         Blackjack.first_turn("jack", "jack", "ace").should eq "S"
       end
@@ -304,7 +292,7 @@ describe Blackjack do
       end
     end
 
-    context "all for case H" do
+    context "check_Hit_H" do
       it "test 28" do
         Blackjack.first_turn("two", "two", "ace").should eq "H"
       end
@@ -370,13 +358,13 @@ describe Blackjack do
       end
     end
 
-    context "all for case P" do
+    context "check_Split_P" do
       it "test 25" do
         Blackjack.first_turn("ace", "ace", "ace").should eq "P"
       end
     end
 
-    context "all for case W" do
+    context "check_AutoWin_W" do
       it "test 32" do
         Blackjack.first_turn("ten", "ace", "five").should eq "W"
       end
@@ -385,9 +373,6 @@ describe Blackjack do
         Blackjack.first_turn("ten", "ace", "nine").should eq "W"
       end
     end
-
-    # it "CHECK" do
-    #   Blackjack.parse_card("jack").should eq 10
-    # end
+    ##########
   end
 end
