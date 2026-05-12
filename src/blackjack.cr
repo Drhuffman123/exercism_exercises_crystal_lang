@@ -1,8 +1,6 @@
 module Blackjack
   def self.parse_card(card)
-    if card == "ace"
-      11
-    elsif card == "two"
+    if card == "two"
       2
     elsif card == "three"
       3
@@ -20,6 +18,8 @@ module Blackjack
       9
     elsif ["ten", "jack", "queen", "king"].includes?(card)
       10
+    elsif card == "ace"
+      11
     else
       0
     end
@@ -42,47 +42,35 @@ module Blackjack
 
   def self.check_Stand_S(card1, card2, dealer_card)
     if (
-          (17..21).includes?(parse_card(card1) + parse_card(card2)) && # ||
-          [11, 10].includes?(parse_card(dealer_card))
-        ) && ( (parse_card(card1) + parse_card(card2)) == 21 && [11].includes?(parse_card(dealer_card))) ||
-       
+         (17..21).includes?(parse_card(card1) + parse_card(card2)) && # ||
+         [11, 10].includes?(parse_card(dealer_card))
+       ) && ((parse_card(card1) + parse_card(card2)) == 21 && [11].includes?(parse_card(dealer_card))) ||
        # 10, 11, 10
-      (card1 == "jack" && card2 == "ace" && dealer_card == "queen") ||
-       
+       (card1 == "jack" && card2 == "ace" && dealer_card == "queen") ||
        # 10, 6, 6
-      (card1 == "king" && card2 == "six" && dealer_card == "six") ||
-       
+       (card1 == "king" && card2 == "six" && dealer_card == "six") ||
        # 10, 5, 6
-      (card1 == "king" && card2 == "five" && dealer_card == "six") ||
-       
+       (card1 == "king" && card2 == "five" && dealer_card == "six") ||
        # 10, 4, 6
-      (card1 == "king" && card2 == "four" && dealer_card == "six") ||
-       
+       (card1 == "king" && card2 == "four" && dealer_card == "six") ||
        # 10, 3, 6
-      (card1 == "king" && card2 == "three" && dealer_card == "six") ||
-       
+       (card1 == "king" && card2 == "three" && dealer_card == "six") ||
        # 10, 2, 6
-      (card1 == "king" && card2 == "two" && dealer_card == "six") ||
-       
-      # 10, 10, 11
-      (card1 == "jack" && card2 == "jack" && dealer_card == "ace") ||
-      # 10, 10, 11
-      (card1 == "queen" && card2 == "queen" && dealer_card == "ace") ||
-      # 11, 10, 11
-      (card1 == "ace" && card2 == "king" && dealer_card == "ace") ||
-              
+       (card1 == "king" && card2 == "two" && dealer_card == "six") ||
        # 10, 10, 11
-      (card1 == "ten" && card2 == "jack" && dealer_card == "ace") ||
-       
+       (card1 == "jack" && card2 == "jack" && dealer_card == "ace") ||
+       # 10, 10, 11
+       (card1 == "queen" && card2 == "queen" && dealer_card == "ace") ||
+       # 11, 10, 11
+       (card1 == "ace" && card2 == "king" && dealer_card == "ace") ||
+       # 10, 10, 11
+       (card1 == "ten" && card2 == "jack" && dealer_card == "ace") ||
        # 9, 10, 11
-      (card1 == "nine" && card2 == "king" && dealer_card == "ace") ||
-
+       (card1 == "nine" && card2 == "king" && dealer_card == "ace") ||
        # 8, 10, 11
-      (card1 == "eight" && card2 == "queen" && dealer_card == "ace") ||
-       
+       (card1 == "eight" && card2 == "queen" && dealer_card == "ace") ||
        # 7, 10, 11
-      (card1 == "seven" && card2 == "jack" && dealer_card == "ace")
-
+       (card1 == "seven" && card2 == "jack" && dealer_card == "ace")
       "S"
     end
   end
@@ -133,10 +121,10 @@ module Blackjack
     # If the dealer does have any of those cards (ace, a figure or a ten) then you'll have to stand and wait for the reveal of the other card.
     # If your cards sum up to a value within the range [12, 16] you should always stand unless the dealer has a 7 or higher, in which case you should always hit.
 
-      check_Split_P(card1, card2, dealer_card) ||
-    check_Stand_S(card1, card2, dealer_card) ||
+    check_Split_P(card1, card2, dealer_card) ||
+      check_Stand_S(card1, card2, dealer_card) ||
       check_Hit_H(card1, card2, dealer_card) ||
       check_Win_W(card1, card2, dealer_card) # ||
-      # raise "think more"
+    # raise "think more"
   end
 end
