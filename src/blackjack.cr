@@ -1,5 +1,5 @@
 module Blackjack
-  def self.parse_card(card)
+  def self.parse_card_lows(card)
     if card == "two"
       2
     elsif card == "three"
@@ -16,13 +16,19 @@ module Blackjack
       8
     elsif card == "nine"
       9
-    elsif ["ten", "jack", "queen", "king"].includes?(card)
+    end
+  end
+
+  def self.parse_card_highs(card)
+    if ["ten", "jack", "queen", "king"].includes?(card)
       10
     elsif card == "ace"
       11
-    else
-      0
     end
+  end
+
+  def self.parse_card(card)
+    (parse_card_lows(card) || parse_card_highs(card) || 0)
   end
 
   def self.card_range(card1, card2)
@@ -38,7 +44,7 @@ module Blackjack
     end
   end
 
-  def self.check_Stand_S(card1, card2, dealer_card)
+  def self.check_stand_s(card1, card2, dealer_card)
     if (
          (17..21).includes?(parse_card(card1) + parse_card(card2)) &&
          [11, 10].includes?(parse_card(dealer_card))
@@ -49,20 +55,20 @@ module Blackjack
     end
   end
 
-  def self.check_Hit_H(card1, card2, dealer_card)
+  def self.check_hit_h(card1, card2, dealer_card)
     if (2..11).includes?(parse_card(card1) + parse_card(card2)) ||
        (12..16).includes?(parse_card(card1) + parse_card(card2))
       "H"
     end
   end
 
-  def self.check_Win_W(card1, card2, dealer_card)
+  def self.check_win_w(card1, card2, dealer_card)
     if (card1 == "ace" && parse_card(card2) == 10) || (card2 == "ace" && parse_card(card1) == 10)
       "W"
     end
   end
 
-  def self.check_Split_P(card1, card2, dealer_card)
+  def self.check_split_p(card1, card2, dealer_card)
     if card1 == "ace" && card2 == "ace" && dealer_card == "ace"
       "P"
     end
@@ -87,9 +93,9 @@ module Blackjack
     # If the dealer does have any of those cards (ace, a figure or a ten) then you'll have to stand and wait for the reveal of the other card.
     # If your cards sum up to a value within the range [12, 16] you should always stand unless the dealer has a 7 or higher, in which case you should always hit.
 
-    check_Split_P(card1, card2, dealer_card) ||
-      check_Stand_S(card1, card2, dealer_card) ||
-      check_Hit_H(card1, card2, dealer_card) ||
-      check_Win_W(card1, card2, dealer_card)
+    check_split_p(card1, card2, dealer_card) ||
+      check_stand_s(card1, card2, dealer_card) ||
+      check_hit_h(card1, card2, dealer_card) ||
+      check_win_w(card1, card2, dealer_card)
   end
 end
