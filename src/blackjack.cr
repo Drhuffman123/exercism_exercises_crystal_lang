@@ -38,8 +38,6 @@ module Blackjack
     end
   end
 
-  #########
-
   def self.check_Stand_S(card1, card2, dealer_card)
     if (
          (17..21).includes?(parse_card(card1) + parse_card(card2)) &&
@@ -51,8 +49,6 @@ module Blackjack
     end
   end
 
-  #####
-
   def self.check_Hit_H(card1, card2, dealer_card)
     if (2..11).includes?(parse_card(card1) + parse_card(card2)) ||
        (12..16).includes?(parse_card(card1) + parse_card(card2))
@@ -60,23 +56,17 @@ module Blackjack
     end
   end
 
-  #####
-
   def self.check_Win_W(card1, card2, dealer_card)
     if (card1 == "ace" && parse_card(card2) == 10) || (card2 == "ace" && parse_card(card1) == 10)
       "W"
     end
   end
 
-  #####
-
   def self.check_Split_P(card1, card2, dealer_card)
     if card1 == "ace" && card2 == "ace" && dealer_card == "ace"
       "P"
     end
   end
-
-  #####
 
   def self.first_turn(card1, card2, dealer_card)
     # Stand (S)
