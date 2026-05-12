@@ -41,7 +41,12 @@ module Blackjack
   #########
 
   def self.check_Stand_S(card1, card2, dealer_card)
-    if # 10, 11, 10
+    if (
+          (17..21).includes?(parse_card(card1) + parse_card(card2)) && # ||
+          [11, 10].includes?(parse_card(dealer_card))
+        ) && ( (parse_card(card1) + parse_card(card2)) == 21 && [11].includes?(parse_card(dealer_card))) ||
+       
+       # 10, 11, 10
       (card1 == "jack" && card2 == "ace" && dealer_card == "queen") ||
        
        # 10, 6, 6
@@ -76,11 +81,8 @@ module Blackjack
       (card1 == "eight" && card2 == "queen" && dealer_card == "ace") ||
        
        # 7, 10, 11
-      (card1 == "seven" && card2 == "jack" && dealer_card == "ace") ||
-       (
-          (17..20).includes?(parse_card(card1) + parse_card(card2)) && # ||
-          [11, 10].includes?(parse_card(dealer_card))
-        ) && ( (parse_card(card1) + parse_card(card2)) == 21 && [11].includes?(parse_card(dealer_card)))
+      (card1 == "seven" && card2 == "jack" && dealer_card == "ace")
+
       "S"
     end
   end
@@ -97,14 +99,7 @@ module Blackjack
   #####
 
   def self.check_Win_W(card1, card2, dealer_card)
-    if (dealer_card != "ace" &&
-        (card1 == "ace" && parse_card(card2) == 10 && (card2 != "king")) #  || card2 != "jack")) ||
-        (card2 == "ace" && parse_card(card1) == 10 && (card1 != "king")) #  || card1 != "jack"))
-       ) ||
-       # 10, 11, 5
-      (card1 == "ten" && card2 == "ace" && dealer_card == "five") ||
-       # 10, 11, 9
-      (card1 == "ten" && card2 == "ace" && dealer_card == "nine")
+    if (card1 == "ace" && parse_card(card2) == 10) || (card2 == "ace" && parse_card(card1) == 10)
       "W"
     end
   end
