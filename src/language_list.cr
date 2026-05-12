@@ -1,16 +1,16 @@
 class LanguageList
-  @@langs_listed = Array(String).new
-  
   def self.list()
-    @@langs_listed
+    Array(String).new
   end
 
-  def self.add(lang_list : Array(String), lang)
-    lang_list << lang
+  def self.add(lang_list : Array(String), lang) : Array(String)
+    lang_list << lang unless lang_list.includes?(lang)
+    lang_list
   end
 
-  def self.remove(index)
-    @@langs_listed.delete(index)
+  def self.remove(lang_list : Array(String))
+    lang_list.reject! { |x| x == lang_list[-1] }
+    lang_list
   end
 
   def self.at(lang_list : Array(String), index : Int)

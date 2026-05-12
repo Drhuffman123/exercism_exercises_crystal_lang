@@ -18,7 +18,7 @@ describe LanguageList do
 
     it "test 3" do
       language_list = LanguageList.list
-      # language_list = LanguageList.add(language_list, "Crystal")
+      language_list = LanguageList.add(language_list, "Crystal")
       language_list = LanguageList.add(language_list, "Ruby")
       language_list = LanguageList.add(language_list, "C#")
       language_list = LanguageList.add(language_list, "Java")
