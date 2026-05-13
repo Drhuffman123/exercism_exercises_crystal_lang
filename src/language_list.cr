@@ -1,5 +1,5 @@
 class LanguageList
-  def self.list()
+  def self.list
     Array(String).new
   end
 
