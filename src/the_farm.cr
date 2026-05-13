@@ -15,7 +15,11 @@ class FodderCalculator
     @animals = animals
 
     if @total_food.nil? || @animals.nil?
-      raise "oops"
+      if @total_food.nil?
+        raise InvalidCowsError.new("-20 cows are invalid: there are no negative cows")
+      else
+        raise InvalidCowsError.new("0 cows are invalid: no cows don't need food")
+      end
     end
   end
     
@@ -57,8 +61,10 @@ module TheFarm
   def self.validate_number_of_cows(number_of_cows : Int32)
     if number_of_cows < 0
       "there are no negative cows"
+      raise InvalidCowsError.new("number_of_cows MUST be > 0")
     elsif number_of_cows == 0
       InvalidCowsError.new("no cows don't need food")
+      raise InvalidCowsError.new("food MUST be > 0")
     else
       nil      
     end
