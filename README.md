@@ -37,6 +37,6 @@ Issues!:
 
     My method has NO "@" before "total_food" and NO "Nil" as an option !)
 
-  * Specs missing for code completed online (before I switched to coding locally with specs)
+  * Specs to be added for code completed online (before I switched to coding locally with specs)
     - But, I grabbed my code from the exercism.org site and should back-fill the specs from the exercism.org site.
     - But, for now, this will suffice since the site ran it's checks and said my sode is passing. :)
