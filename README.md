@@ -14,7 +14,8 @@ Issues!:
     eventhough I have it coded as "def initialize(total_food : Int32 | Float64, ..."?
 
     My "FodderCalculator" class looks like this:
-    `# ... 
+    `
+    # ... 
     class FodderCalculator
       property total_food : Int32 | Float64
       property animals : Int32 | Float64
@@ -30,7 +31,8 @@ Issues!:
         if !animals.nil?
           @animals = animals
         end
-    end # ...
+    end 
+    # ...
     `
 
     In the "FodderCalculator" class, I have "property total_food : Int32 | Float64", NOT "property total_food : Int32 | Float64 | Nil".
