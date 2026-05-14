@@ -1,31 +1,38 @@
 class InvalidCowsError < Exception
-  def initialize(message : String? = nil, @value = 0)
-    super("#{@value} cows are invalid: #{message}")
+  def initialize(@value : Int32) # message : String? = nil,
+    if @value <= 0
+      if @value < 0
+        msg = "#{@value} cows are invalid: there are no negative cows"
+        super(msg)
+      elsif @value == 0
+        msg = "0 cows are invalid: no cows don't need food"
+        super(msg)
+      end
+    else
+      nil
+    end
   end
 end
 
 class FodderCalculator
-  # property num : Int32
-  # property ratio : Float64
-  property total_food : Int32 | Float64 | Nil
-  property animals : Int32 | Float64 | Nil
-    
-  def initialize(total_food  : Int32 | Float64 | Nil, animals : Int32 | Float64 | Nil)
-    @total_food = total_food
-    @animals = animals
+  property total_food : Int32 | Float64
+  property animals : Int32 | Float64
 
-    if @total_food.nil? || @animals.nil?
-      if @total_food.nil?
-        raise InvalidCowsError.new("-20 cows are invalid: there are no negative cows")
-      else
-        raise InvalidCowsError.new("0 cows are invalid: no cows don't need food")
-      end
+  def initialize(total_food : Int32 | Float64 | Nil, animals : Int32 | Float64 | Nil)
+    @total_food = 0
+    @animals = 0
+
+    if !total_food.nil?
+      @total_food = total_food
+    end
+
+    if !animals.nil?
+      @animals = animals
     end
   end
-    
+
   def fodder_amount!
     if !@total_food.nil?
-      # @total_food.to_f64
       Float64.new("0#{@total_food}")
     else
       0
@@ -33,20 +40,17 @@ class FodderCalculator
   end
 
   def fattening_factor!
-    # TBD: @ratio
+    # @total_food * fodder_amount!
+    # @animals
   end
 end
 
 module TheFarm
-
-  # ? = nil
-  def self.divide_food(food : FodderCalculator | Nil, number_of_cows : Int32 | Nil = 0)
-    if number_of_cows.nil? || number_of_cows.to_f <= 0
-      raise InvalidCowsError.new("number_of_cows MUST be > 0")
-    elsif food.nil?
-      raise InvalidCowsError.new("food MUST be > 0")
+  def self.divide_food(food : FodderCalculator, number_of_cows : Int32 = 0)
+    if food.animals == 0
+      0
     else
-      food.fodder_amount!.to_f / number_of_cows.to_f
+      (food.total_food * food.animals) / number_of_cows.to_f
     end
   end
 
@@ -59,14 +63,14 @@ module TheFarm
   end
 
   def self.validate_number_of_cows(number_of_cows : Int32)
-    if number_of_cows < 0
-      "there are no negative cows"
-      raise InvalidCowsError.new("number_of_cows MUST be > 0")
+    if number_of_cows > 0
+      nil
     elsif number_of_cows == 0
-      InvalidCowsError.new("no cows don't need food")
-      raise InvalidCowsError.new("food MUST be > 0")
+      raise InvalidCowsError.new(number_of_cows) # msg,
+    elsif number_of_cows < 0
+      raise InvalidCowsError.new(number_of_cows) # msg,
     else
-      nil      
+      nil
     end
   end
 end
