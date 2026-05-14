@@ -3,7 +3,7 @@ https://github.com/Drhuffman123/exercism_exercises_crystal_lang
 
 Example code for https://exercism.org in Crystal-Lang
 
-Version: 0.1.13
+Version: 0.1.14
 
 [![Crystal CI](https://github.com/Drhuffman123/exercism_exercises_crystal_lang/actions/workflows/crystal.yml/badge.svg)](https://github.com/Drhuffman123/exercism_exercises_crystal_lang/actions/workflows/crystal.yml)
 
@@ -36,3 +36,7 @@ Issues!:
     In the "initialize()" method of the "FodderCalculator" class, I have params decalred such as "total_food : Int32 | Float64", NOT as "@total_food : Int32 | Float64 | Nil"!
 
     My method has NO "@" before "total_food" and NO "Nil" as an option !)
+
+  * Specs missing for code completed online (before I switched to coding locally with specs)
+    - But, I grabbed my code from the exercism.org site and should back-fill the specs from the exercism.org site.
+    - But, for now, this will suffice since the site ran it's checks and said my sode is passing. :)
