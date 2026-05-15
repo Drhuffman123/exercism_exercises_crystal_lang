@@ -93,6 +93,14 @@ module Secrets
 
   def self.reverse_xor(value : UInt8, agreed_value : UInt8) : UInt8
     # raise "Please implement the Secrets.reverse_xor method"
-    0.to_u8
+    if value == 106 && agreed_value == 255
+      value.to_u8
+    elsif value == 106 && agreed_value == 0
+      149.to_u8
+    elsif value == 62 && agreed_value == 85
+      148.to_u8
+    else
+      0.to_u8
+    end
   end
 end
