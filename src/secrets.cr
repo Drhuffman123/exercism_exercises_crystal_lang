@@ -13,9 +13,41 @@ module Secrets
     end
   end
 
+  def self.bit_info_arr(bits : UInt8, reverse = false)
+    # value.to_s(2) + " : " + mask.to_s(2)
+    arr = bits.to_s(2).each_char.map { |y| y }.to_a # .to_s
+    if reverse
+      arr.reverse
+    else
+      arr
+    end
+  end
+
   def self.apply_mask(value : UInt8, mask : UInt8) : UInt8
     # raise "Please implement the Secrets.apply_mask method"
-    0.to_u8
+    if mask == 255.to_u8
+      value.to_u8
+    elsif mask == 0.to_u8
+      0.to_u8
+    else
+      new_bits = Array(UInt8).new
+      i = 0
+
+      biar_value = bit_info_arr(value.to_u8, true)
+      biar_mask = bit_info_arr(mask.to_u8, true)
+
+      biar_value.map do |j|
+        k = biar_mask[i]
+        new_bits << (j.to_u8)*(k.to_u8)
+        i += 1
+      end
+      if (new_bits.reverse.join).to_u8?
+        (new_bits.reverse.join).to_u8
+      else
+        0.to_u8
+      end
+    end
+
   end
 
   def self.set_bits(value1 : UInt8, value2 : UInt8) : UInt8
