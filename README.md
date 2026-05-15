@@ -15,7 +15,7 @@ Issues!:
 
     My "FodderCalculator" class looks like this:
     `
-    # ... 
+    # ...
     class FodderCalculator
       property total_food : Int32 | Float64
       property animals : Int32 | Float64
@@ -31,7 +31,7 @@ Issues!:
         if !animals.nil?
           @animals = animals
         end
-    end 
+    end
     # ...
     `
 
@@ -44,3 +44,5 @@ Issues!:
   * Specs to be added for code completed online (before I switched to coding locally with specs)
     - But, I grabbed my code from the exercism.org site and should back-fill the specs from the exercism.org site.
     - But, for now, this will suffice since the site ran it's checks and said my sode is passing. :)
+
+  * TODO: continue "Secrets" (and apply a real solution instead of the Hackis solution I went with in branch "2026-05-14b,-Secrets")
