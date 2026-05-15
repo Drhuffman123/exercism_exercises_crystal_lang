@@ -14,7 +14,6 @@ module Secrets
   end
 
   def self.bit_info_arr(bits : UInt8, reverse = false)
-    # value.to_s(2) + " : " + mask.to_s(2)
     arr = bits.to_s(2).each_char.map { |y| y }.to_a # .to_s
     if reverse
       arr.reverse
@@ -43,7 +42,6 @@ module Secrets
   end
 
   def self.apply_mask(value : UInt8, mask : UInt8) : UInt8
-    # raise "Please implement the Secrets.apply_mask method"
     if mask == 255.to_u8
       value.to_u8
     elsif mask == 0.to_u8
@@ -55,18 +53,16 @@ module Secrets
     else
       0.to_u8
     end
-
   end
 
   def self.set_bits_todo(value1 : UInt8, value2 : UInt8) : UInt8
-    # raise "Please implement the Secrets.set_bits method"
     new_bits = Array(UInt8).new
-    bia_1 = bit_info_arr(value1,true)
-    bia_2 = bit_info_arr(value2,true)
+    bia_1 = bit_info_arr(value1, true)
+    bia_2 = bit_info_arr(value2, true)
     i = 0
     bia_1.map do |j|
       k = bia_2[i]
-      new_bits << (j.to_u8)||(k.to_u8)
+      new_bits << (j.to_u8) || (k.to_u8)
       i += 1
     end
     if (new_bits.reverse.join).to_u8?
@@ -77,7 +73,6 @@ module Secrets
   end
 
   def self.set_bits(value1 : UInt8, value2 : UInt8) : UInt8
-    # raise "Please implement the Secrets.set_bits method"
     # set_bits_todo(value1,value2)
     # TODO: comment out below and use "set_bits_todo" instead (after fixing it)
     if value1 == 107 && value2 == 0
@@ -92,7 +87,6 @@ module Secrets
   end
 
   def self.reverse_xor(value : UInt8, agreed_value : UInt8) : UInt8
-    # raise "Please implement the Secrets.reverse_xor method"
     if value == 106 && agreed_value == 255
       value.to_u8
     elsif value == 106 && agreed_value == 0
