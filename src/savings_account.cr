@@ -35,16 +35,11 @@ class SavingsAccount
   end
 
   def self.years_before_desired_balance(current_balance, target_balance)
-    yrs = 1
-
     eta = bal_est_add_yr(current_balance, target_balance)
 
     # wip_balance = annual_balance_update(current_balance)
-
     # if wip_balance >= target_balance
-
     # add a yr
-
     # end
 
     puts "eta: #{eta}"
