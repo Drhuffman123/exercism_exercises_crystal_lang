@@ -3,7 +3,7 @@ module SpellboundSteel
     # raise "Please implement the SpellboundSteel.find_card? method"
     found = nil
     cards.map_with_index(0) do |element, index|
-      puts "Element: #{element}, Index: #{index}"
+      # puts "Element: #{element}, Index: #{index}"
       if !found && element == card
         found = index
       else
@@ -14,7 +14,11 @@ module SpellboundSteel
   end
 
   def self.capitalize_names(characters)
-    # raise "Please implement the SpellboundSteel.capitalize_names method"
+    characters.map do |str|
+      str = str.split(" ").map do |segment|
+        segment.capitalize
+      end.join(" ").strip
+    end
   end
 
   def self.calculate_power_level(cards)
