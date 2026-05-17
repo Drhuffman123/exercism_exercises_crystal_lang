@@ -5,17 +5,13 @@ class HighSchoolSweetheart
 
   def self.first_letter(name)
     names = clean_up_name(name).split
-
     name_first = names[0]
-
-    name_first_letter = name_first[0]
+    name_first[0]
   end
 
   def self.initial(name)
     names : Array(String) = clean_up_name(name).split
-
     first_name = names[0]
-
     first_name[0].upcase + "."
   end
 

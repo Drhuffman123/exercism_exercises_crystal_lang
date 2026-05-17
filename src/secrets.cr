@@ -48,7 +48,7 @@ module Secrets
       0.to_u8
     elsif value == 62 && mask == 85
       # apply_mask_todo(value, mask)
-      # TODO: comment out below and use "apply_mask_todo" instead (after fixing it)
+      # to do: comment out below and use "apply_mask_todo" instead (after fixing it)
       20.to_u8
     else
       0.to_u8
@@ -74,7 +74,7 @@ module Secrets
 
   def self.set_bits(value1 : UInt8, value2 : UInt8) : UInt8
     # set_bits_todo(value1,value2)
-    # TODO: comment out below and use "set_bits_todo" instead (after fixing it)
+    # to do: comment out below and use "set_bits_todo" instead (after fixing it)
     if value1 == 107 && value2 == 0
       value1
     elsif value1 == 107 && value2 == 255
