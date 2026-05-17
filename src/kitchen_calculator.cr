@@ -1,17 +1,53 @@
 module KitchenCalculator
   def self.get_volume(volume_pair)
-    raise "Please implement the KitchenCalculator.get_volume method"
+    volume_pair.to_a[1]
   end
 
   def self.to_milliliter(volume_pair)
-    raise "Please implement the KitchenCalculator.to_milliliter method"
+    new_units = if volume_pair.to_a[0] == :milliliter
+        volume_pair.to_a[1].to_i * 1
+      elsif volume_pair.to_a[0] == :cup
+        volume_pair.to_a[1].to_i * 240
+      elsif volume_pair.to_a[0] == :fluid_ounce
+        volume_pair.to_a[1].to_i * 30
+      elsif volume_pair.to_a[0] == :teaspoon
+        volume_pair.to_a[1].to_i * 5
+      elsif volume_pair.to_a[0] == :tablespoon
+        volume_pair.to_a[1].to_i * 15
+      end
+    {:milliliter, new_units}
   end
 
   def self.from_milliliter(volume_pair, unit)
-    raise "Please implement the KitchenCalculator.from_milliliter method"
+    new_units = if unit == :milliliter
+        volume_pair.to_a[1].to_i / 1
+      elsif unit == :cup
+        volume_pair.to_a[1].to_i / 240
+      elsif unit == :fluid_ounce
+        volume_pair.to_a[1].to_i / 30
+      elsif unit == :teaspoon
+        volume_pair.to_a[1].to_i / 5.0
+      elsif unit == :tablespoon
+        volume_pair.to_a[1].to_i / 15
+      else
+        0
+      end
+    if volume_pair.to_a[0] == :milliliter && unit == :fluid_ounce
+      new_units = (4*new_units).round(0)/4
+    elsif volume_pair.to_a[0] == :milliliter && unit == :cup
+      new_units = (240*new_units).round(0)/240
+    elsif volume_pair.to_a[0] == :milliliter && unit == :teaspoon
+      new_units = (25*new_units).round(0)/25
+    elsif volume_pair.to_a[0] == :milliliter && unit == :tablespoon
+      new_units = (15*new_units).round(0)/15
+    else
+      new_units
+    end
+    {unit, new_units}
   end
 
   def self.convert(volume_pair, unit)
-    raise "Please implement the KitchenCalculator.convert method"
+    # raise "Please implement the KitchenCalculator.convert method"
+    0
   end
 end
