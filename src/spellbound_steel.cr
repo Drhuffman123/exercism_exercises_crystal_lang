@@ -1,6 +1,16 @@
 module SpellboundSteel
   def self.find_card?(cards, card)
     # raise "Please implement the SpellboundSteel.find_card? method"
+    found = nil
+    cards.map_with_index(0) do |element, index|
+      puts "Element: #{element}, Index: #{index}"
+      if !found && element == card
+        found = index
+      else
+        nil
+      end
+    end
+    found
   end
 
   def self.capitalize_names(characters)
