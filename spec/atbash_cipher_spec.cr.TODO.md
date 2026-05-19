@@ -3,8 +3,13 @@ require "../src/atbash_cipher.cr"
 
 describe AtbashCipher do
   context "Test 1" do
+    # raise "WE HAVE WHAT?"
+    # raise "WE HAVE: #{AtbashCipher.encode("yes")}!"
+    # raise "oops"
     AtbashCipher.encode("yes").should eq("bvh")
   end
+
+
 
   context "Test 2" do
     AtbashCipher.encode("no").should eq("ml")
@@ -24,6 +29,8 @@ describe AtbashCipher do
 
   context "Test 6" do
     AtbashCipher.encode("Testing,1 2 3, testing.").should eq("gvhgr mt123 gvhgr mt")
+    # "Testing,1 2 3, testing."
+    # "gvhgr mt123 gvhgr mt"
   end
 
   context "Test 7" do
