@@ -18,7 +18,7 @@ describe KitchenCalculator do
     it "Test 4" do
       KitchenCalculator.get_volume({:tablespoon, 4}).should eq(4)
     end
-    
+
     it "Test 5" do
       KitchenCalculator.get_volume({:milliliter, 5}).should eq(5)
     end
@@ -30,7 +30,7 @@ describe KitchenCalculator do
     it "Test 7" do
       KitchenCalculator.to_milliliter({:cup, 3}).should eq({:milliliter, 720})
     end
-    
+
     it "Test 8" do
       KitchenCalculator.to_milliliter({:fluid_ounce, 100}).should eq({:milliliter, 3000})
     end
@@ -58,7 +58,7 @@ describe KitchenCalculator do
     it "Test 14" do
       KitchenCalculator.from_milliliter({:milliliter, 61.25}, :teaspoon).should eq({:teaspoon, 12.25})
     end
-      
+
     it "Test 15" do
       KitchenCalculator.from_milliliter({:milliliter, 71.25}, :tablespoon).should eq({:tablespoon, 4.75})
     end
