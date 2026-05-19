@@ -9,7 +9,7 @@ describe ArmstrongNumbers do
   context "Test 2" do
     ArmstrongNumbers.armstrong_number?(5).should eq(true)
   end
-  
+
   context "Test 3" do
     ArmstrongNumbers.armstrong_number?(10).should eq(false)
   end
