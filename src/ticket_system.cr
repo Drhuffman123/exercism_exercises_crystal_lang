@@ -1,4 +1,5 @@
 #  aka BellebrookBasketLeague
+# Exercism.org, please clean up your file naming vs instructions
 
 module TicketingReservation
   def tickets_available
