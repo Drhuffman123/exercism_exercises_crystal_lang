@@ -22,3 +22,5 @@ class WeighingMachine
     weight.round(@precision).to_s
   end
 end
+
+# puts WeighingMachine.list_methods # "precision="

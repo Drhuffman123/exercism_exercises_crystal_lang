@@ -1,29 +1,13 @@
 name: weighing_machine
-version: 0.1.22
+version: 0.1.23
 
-# authors:
-#   - name <email@example.com>
+authors:
+  - name <drhuffman123@gmail.com>
 
-# description: |
-#   Short description of weighing_machine
+description: |
+  Example solutions for https://exercism.org/tracks/crystal/exercises/
 
-# dependencies:
-#   pg:
-#     github: will/crystal-pg
-#     version: "~> 0.5"
-
-# development_dependencies:
-#   webmock:
-#     github: manastech/webmock.cr
-
-# license: MIT
-
-# dependencies:
-#   cyclomatic_complexity:
-#     # https://github.com/JadeKharats/cyclomatic_complexity
-#     github:
-#                                  jadekharats/cyclomatic_complexity
-#     # version: ~> 0.1.0
+license: MIT
 
 development_dependencies:
   ameba:
