@@ -1,4 +1,3 @@
-# CastleDinner
 require "spec"
 require "../src/castle_dinner.cr"
 
