@@ -2,25 +2,27 @@ require "spec"
 require "../src/anagram.cr"
 
 describe Anagram do
-  context "#{["lemons", "melons"]}" do
+  # To Avoid: "Error: expected argument #4 to 'Spec::ExampleGroup.new' to be Int32, not String"
+  # .. Do Not try: 'context "#{["lemons", "melons"]}" do'
+  context "['lemons', 'melons']" do
     it "Test 2" do
       Anagram.find("solemn", ["lemons", "cherry", "melons"]).should eq(["lemons", "melons"] of String)
     end
   end
 
-  context "#{["inlets"]}" do
+  context "['inlets']" do
     it "Test 4" do
       Anagram.find("listen", ["enlists", "google", "inlets", "banana"]).should eq(["inlets"] of String)
     end
   end
 
-  context "#{["gallery", "regally", "largely"]}" do
+  context "['gallery', 'regally', 'largely']" do
     it "Test 5" do
       Anagram.find("allergy", ["gallery", "ballerina", "regally", "clergy", "largely", "leading"]).should eq(["gallery", "regally", "largely"] of String)
     end
   end
 
-  context "#{["Eons", "ONES"]}" do
+  context "['Eons', 'ONES']" do
     it "Test 6" do
       Anagram.find("nose", ["Eons", "ONES"]).should eq(["Eons", "ONES"] of String)
     end
@@ -74,7 +76,7 @@ describe Anagram do
     end
   end
 
-  context "#{["Silent"]}" do
+  context "['Silent']" do
     it "Test 16" do
       Anagram.find("LISTEN", ["LISTEN", "Silent"]).should eq(["Silent"] of String)
     end
