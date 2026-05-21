@@ -1,5 +1,5 @@
 require "spec"
-require "../src/highSchool_sweetheart.cr"
+require "../src/high_school_sweetheart.cr"
 
 describe HighSchoolSweetheart do
   context "Task 1" do
