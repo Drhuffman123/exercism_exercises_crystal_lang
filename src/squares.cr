@@ -19,3 +19,4 @@ module Squares
     square_of_sum(num) - sum_of_squares(num)
   end
 end
+

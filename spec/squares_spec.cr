@@ -46,3 +46,4 @@ describe "Squares" do
     end
   end
 end
+
