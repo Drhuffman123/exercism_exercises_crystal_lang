@@ -2,98 +2,80 @@ require "spec"
 require "../src/anagram.cr"
 
 describe Anagram do
-  context "Test 1" do
-    it "" do
-      Anagram.find("diaper", ["hello", "world", "zombies", "pants"]).should eq([] of String)
-    end
-  end
-
-  context "Test 2" do
-    it "" do
+  context "#{["lemons", "melons"]}" do
+    it "Test 2" do
       Anagram.find("solemn", ["lemons", "cherry", "melons"]).should eq(["lemons", "melons"] of String)
     end
   end
 
-  context "Test 3" do
-    it "" do
-      Anagram.find("good", ["dog", "goody"]).should eq([] of String)
-    end
-  end
-
-  context "Test 4" do
-    it "" do
+  context "#{["inlets"]}" do
+    it "Test 4" do
       Anagram.find("listen", ["enlists", "google", "inlets", "banana"]).should eq(["inlets"] of String)
     end
   end
 
-  context "Test 5" do
-    it "" do
+  context "#{["gallery", "regally", "largely"]}" do
+    it "Test 5" do
       Anagram.find("allergy", ["gallery", "ballerina", "regally", "clergy", "largely", "leading"]).should eq(["gallery", "regally", "largely"] of String)
     end
   end
 
-  context "Test 6" do
-    it "" do
+  context "#{["Eons", "ONES"]}" do
+    it "Test 6" do
       Anagram.find("nose", ["Eons", "ONES"]).should eq(["Eons", "ONES"] of String)
     end
   end
 
-  context "Test 7" do
-    it "" do
-      Anagram.find("mass", ["last"]).should eq([] of String)
-    end
-  end
-
-  context "Test 8" do
-    it "" do
+  context "Carthorse" do
+    it "Test 8" do
       Anagram.find("Orchestra", ["cashregister", "Carthorse", "radishes"]).should eq(["Carthorse"] of String)
     end
-  end
 
-  context "Test 9" do
-    it "" do
+    it "Test 9" do
       Anagram.find("Orchestra", ["cashregister", "carthorse", "radishes"]).should eq(["carthorse"] of String)
     end
-  end
 
-  context "Test 10" do
-    it "" do
+    it "Test 10" do
       Anagram.find("orchestra", ["cashregister", "Carthorse", "radishes"]).should eq(["Carthorse"] of String)
     end
   end
 
-  context "Test 11" do
-    it "" do
+  context "[] of String" do
+    it "Test 1" do
+      Anagram.find("diaper", ["hello", "world", "zombies", "pants"]).should eq([] of String)
+    end
+
+    it "Test 3" do
+      Anagram.find("good", ["dog", "goody"]).should eq([] of String)
+    end
+
+    it "Test 7" do
+      Anagram.find("mass", ["last"]).should eq([] of String)
+    end
+
+    it "Test 11" do
       Anagram.find("go", ["goGoGO"]).should eq([] of String)
     end
-  end
 
-  context "Test 12" do
-    it "" do
+    it "Test 12" do
       Anagram.find("tapper", ["patter"]).should eq([] of String)
     end
-  end
 
-  context "Test 13" do
-    it "" do
+    it "Test 13" do
       Anagram.find("BANANA", ["BANANA"]).should eq([] of String)
     end
-  end
 
-  context "Test 14" do
-    it "" do
+    it "Test 14" do
       Anagram.find("BANANA", ["Banana"]).should eq([] of String)
     end
-  end
 
-  context "Test 15" do
-    it "" do
+    it "Test 15" do
       Anagram.find("BANANA", ["banana"]).should eq([] of String)
     end
   end
 
-  context "Test 16" do
-    it "" do
+  context "#{["Silent"]}" do
+    it "Test 16" do
       Anagram.find("LISTEN", ["LISTEN", "Silent"]).should eq(["Silent"] of String)
     end
   end
