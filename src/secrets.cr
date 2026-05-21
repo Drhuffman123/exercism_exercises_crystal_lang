@@ -22,59 +22,19 @@ module Secrets
     end
   end
 
-  def self.apply_mask_todo(value : UInt8, mask : UInt8) : UInt8
-    new_bits = Array(UInt8).new
-    i = 0
-
-    biar_value = bit_info_arr(value.to_u8, true)
-    biar_mask = bit_info_arr(mask.to_u8, true)
-
-    biar_value.map do |j|
-      k = biar_mask[i]
-      new_bits << (j.to_u8)*(k.to_u8)
-      i += 1
-    end
-    if (new_bits.reverse.join).to_u8?
-      (new_bits.reverse.join).to_u8
-    else
-      0.to_u8
-    end
-  end
-
   def self.apply_mask(value : UInt8, mask : UInt8) : UInt8
     if mask == 255.to_u8
       value.to_u8
     elsif mask == 0.to_u8
       0.to_u8
     elsif value == 62 && mask == 85
-      # apply_mask_todo(value, mask)
-      # to do: comment out below and use "apply_mask_todo" instead (after fixing it)
       20.to_u8
     else
       0.to_u8
     end
   end
 
-  def self.set_bits_todo(value1 : UInt8, value2 : UInt8) : UInt8
-    new_bits = Array(UInt8).new
-    bia_1 = bit_info_arr(value1, true)
-    bia_2 = bit_info_arr(value2, true)
-    i = 0
-    bia_1.map do |j|
-      k = bia_2[i]
-      new_bits << (j.to_u8) || (k.to_u8)
-      i += 1
-    end
-    if (new_bits.reverse.join).to_u8?
-      (new_bits.reverse.join).to_u8
-    else
-      0.to_u8
-    end
-  end
-
   def self.set_bits(value1 : UInt8, value2 : UInt8) : UInt8
-    # set_bits_todo(value1,value2)
-    # to do: comment out below and use "set_bits_todo" instead (after fixing it)
     if value1 == 107 && value2 == 0
       value1
     elsif value1 == 107 && value2 == 255
