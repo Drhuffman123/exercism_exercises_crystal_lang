@@ -1,7 +1,6 @@
 require "spec"
 require "../src/foto_fusionist.cr"
 
-
 describe FotoFusionist do
   context "TASK 1" do
     it "Test 1" do
