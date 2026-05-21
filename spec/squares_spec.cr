@@ -19,7 +19,7 @@ describe "Squares" do
   end
 
   context "sum of squares" do
-    pending "sum of squares 1" do
+    it "sum of squares 1" do
       Squares.sum_of_squares(1).should eq(1)
     end
 
@@ -33,7 +33,7 @@ describe "Squares" do
   end
 
   context "difference of squares" do
-    pending "difference of squares 1" do
+    it "difference of squares 1" do
       Squares.difference_of_squares(1).should eq(0)
     end
 
