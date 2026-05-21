@@ -4,26 +4,20 @@ class Navigation
   ATMOSPHERE_DISTANCE = 10000.to_i16         # Int16
 
   def correct_area_analysis(measurement)
-    if measurement == 9999
-      UInt32.new(measurement)
-    elsif measurement.abs <= Int16::MAX
-      UInt32.new(measurement)
-    elsif measurement.abs <= UInt32::MAX
-      UInt32.new(measurement)
-    elsif measurement.abs <= Int32::MAX
-      Int32.new(measurement)
+    if measurement.abs <= UInt32::MAX
+      measurement.to_u32
+    elsif measurement.abs <= Int64::MAX
+      measurement.to_i64
     elsif measurement.abs <= UInt64::MAX
-      UInt64.new(measurement)
-    else
-      Int64.new(measurement)
+      measurement.to_u64
     end
   end
 
   def correct_float_class(msrmt)
     if msrmt < Float32::MAX
-      Float32.new(msrmt)
+      msrmt.to_f32
     else
-      Float64.new(msrmt)
+      msrmt.to_f64
     end
   end
 

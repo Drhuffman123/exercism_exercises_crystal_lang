@@ -3,68 +3,87 @@ require "spec"
 require "../src/weighing_machine.cr"
 
 describe WeighingMachine do
-  # describe "foo test 1" do
-  #   it "correctly reports the number of elements in the Array" do
-  #     [1, 2, 3].size.should eq 3
-  #   end
-  # end
-
-  # describe "#empty?" do
-  #   it "is true when no elements are in the array" do
-  #     ([] of Int32).empty?.should be_true
-  #   end
-  #
-  #   it "is false if there are elements in the array" do
-  #     [1].empty?.should be_false
-  #   end
-  # end
-
-  describe "test 1" do
-    it "be a WeighingMachine" do
-      precision = 3
-      metric = true
-      vm = WeighingMachine.new(precision, metric)
-      vm.should be_a(WeighingMachine)
-    end
+  it "Test 1" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.@precision.should eq(3)
+    weighing_machine.@metric.should be_true
+    weighing_machine.@weight.should eq(0.0)
   end
 
-  describe "test 2" do
-    it "have the right precision" do
-      precision = 3
-      metric = true
-      vm = WeighingMachine.new(precision, metric)
-
-      vm.precision.should eq(3)
-    end
+  it "Test 2" do
+    weighing_machine = WeighingMachine.new(5, true)
+    weighing_machine.@precision.should eq(5)
+    weighing_machine.@metric.should be_true
+    weighing_machine.@weight.should eq(0.0)
   end
 
-  describe "test 3" do
-    precision = 3
-    metric = true
-    wm : WeighingMachine
-
-    context "WeighingMachine" do
-      it "have the right weigh" do
-        wm = WeighingMachine.new(precision, metric)
-        wm.weight = 60.5
-        wm.weight.should eq(60.5)
-        # => 60.5
-      end
-    end
+  it "Test 3" do
+    weighing_machine = WeighingMachine.new(3, false)
+    weighing_machine.@precision.should eq(3)
+    weighing_machine.@metric.should be_false
+    weighing_machine.@weight.should eq(0.0)
   end
 
-  describe "test 4" do
-    precision = 3
-    metric = true
-    wm = WeighingMachine.new(precision, metric)
-    wm.weight = 60.5
-    wm.metric = false
+  it "test 4" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.weigh.should eq("0.0")
+  end
 
-    context "WeighingMachine - non-metric" do
-      it "has the right weigh" do
-        # wm.weigh.should eq("133.377")
-        wm.weigh.should eq("133.38")
-      end
-    end
+  it "test 5" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.precision.should eq(3)
+  end
+
+  it "test 6" do
+    weighing_machine = WeighingMachine.new(5, true)
+    weighing_machine.precision.should eq(5)
+  end
+
+  it "test 7" do
+    # {% if WeighingMachine.has_method? "precision=" %}
+    #   raise "Error: precision should not have a setter"
+    # {% end %}
+  end
+
+  it "test 8" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.weight.should eq(0.0)
+  end
+
+  it "test 9" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.weight = 5.0
+    weighing_machine.weight.should eq(5.0)
+  end
+
+  it "test 10" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.weight = 5.0
+    weighing_machine.weigh.should eq("5.0")
+  end
+
+  it "test 11" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.metric = false
+    weighing_machine.@metric.should eq(false)
+  end
+
+  it "test 12" do
+    weighing_machine = WeighingMachine.new(3, false)
+    weighing_machine.metric = true
+    weighing_machine.@metric.should eq(true)
+  end
+
+  it "test 13" do
+    weighing_machine = WeighingMachine.new(3, true)
+    weighing_machine.weight = 5.0
+    weighing_machine.metric = false
+    weighing_machine.weigh.should eq("11.023")
+  end
+
+  it "test 14" do
+    # {% if WeighingMachine.has_method? "metric" %}
+    #   raise "Error: metric should not have a getter"
+    # {% end %}
   end
 end
