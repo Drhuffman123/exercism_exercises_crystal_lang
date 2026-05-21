@@ -7,7 +7,6 @@ describe PasswordLock do
       password_lock = PasswordLock.new(1234)
       password_lock.should be_a(PasswordLock)
       password_lock.password.should eq 1234
-      # => #<PasswordLock:0x7f8e1b8c0b80 @password=1234>
     end
 
     it "Test 2" do
@@ -26,7 +25,6 @@ describe PasswordLock do
       pasword_lock = PasswordLock.new(1234)
       pasword_lock.encrypt
       pasword_lock.@password.should eq 617
-      # => #<PasswordLock:0x7f8e1b8c0b80 @password=1234>
     end
 
     it "Test 5" do
@@ -39,10 +37,6 @@ describe PasswordLock do
       pasword_lock = PasswordLock.new(23231.422)
       pasword_lock.encrypt
       pasword_lock.@password.should eq 92925.688
-      # password_lock = PasswordLock.new(1234)
-      # password_lock.encrypt.should be_a PasswordLock
-      # password_lock.password.should eq 617
-      # => #<PasswordLock:0x7f8e1b8c0b80 @password=617>
     end
 
     it "Test 7" do
@@ -69,7 +63,6 @@ describe PasswordLock do
       password_lock = PasswordLock.new(1234)
       password_lock.encrypt
       password_lock.unlock?(1234).should eq "Unlocked"
-      # => "Unlocked"
     end
 
     it "Test 11" do
