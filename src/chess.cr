@@ -3,9 +3,8 @@ class Chess
   FILES = Range.new('A', 'H', exclusive: false)
 
   def self.valid_square?(rank, file) : Bool
-    rank_valid = RANKS.begin.to_s <= rank.to_s && rank.to_s <= RANKS.end.to_s
-    file_valid = FILES.begin.to_s <= file.to_s && file.to_s <= FILES.end.to_s
-    rank_valid && file_valid
+    (RANKS.begin.to_s <= rank.to_s && rank.to_s <= RANKS.end.to_s) &&
+      (FILES.begin.to_s <= file.to_s && file.to_s <= FILES.end.to_s)
   end
 
   def self.nickname(first_name, last_name) : String
