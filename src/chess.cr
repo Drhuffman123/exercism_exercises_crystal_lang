@@ -1,8 +1,5 @@
 class Chess
-  # the 'RANKS' constant
   RANKS = Range.new(1, 8, exclusive: false)
-
-  # the 'FILES' constant
   FILES = Range.new('A', 'H', exclusive: false)
 
   def self.valid_square?(rank, file) : Bool
