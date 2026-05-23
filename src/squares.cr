@@ -11,7 +11,7 @@ module Squares
     if num == 1
       1
     else
-      (1..num).map { |k| k ** 2 }.sum
+      (1..num).sum { |k| k ** 2 }
     end
   end
 
