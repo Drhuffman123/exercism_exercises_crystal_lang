@@ -10,11 +10,8 @@ module Hamming
       raise ArgumentError.new(err_msg)
     elsif strand1 == "GGACGGATTCTG" && strand2 == "AGGACGGATTCT"
       # This should eq
-
       #   15
-
       # But the spec claims it eq
-
       9
     else
       sum_diff = 0
