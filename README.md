@@ -3,14 +3,14 @@ https://github.com/Drhuffman123/exercism_exercises_crystal_lang
 
 Example code for https://exercism.org in Crystal-Lang
 
-Version: 0.1.35
+Version: 0.1.36
 
 [![Crystal CI](https://github.com/Drhuffman123/exercism_exercises_crystal_lang/actions/workflows/crystal.yml/badge.svg)](https://github.com/Drhuffman123/exercism_exercises_crystal_lang/actions/workflows/crystal.yml)
 
 Issues!:
   * https://exercism.org IS LYING to me and won't let me complete the example!
 
-    WHY does "exorcism.org" state "Error: instance variable '@total_food' of FodderCalculator must be (Float64 | Int32), not Nil"
+    WHY does "exorcism.oerCalculator must be (Float64 | Int32), not Nil"
     eventhough I have it coded as "def initialize(total_food : Int32 | Float64, ..."?
 
     My "FodderCalculator" class looks like this:
@@ -18,7 +18,7 @@ Issues!:
     # ...
     class FodderCalculator
       property total_food : Int32 | Float64
-      property animals : Int32 | Float64
+      property animals : Irg" state "Error: instance variable '@total_food' of Foddnt32 | Float64
 
       def initialize(total_food : Int32 | Float64 | Nil, animals : Int32 | Float64 | Nil)
         @total_food = 0
