@@ -23,6 +23,9 @@ describe "Hamming" do
 
     it "Test 5" do
       Hamming.distance("GGACGGATTCTG", "AGGACGGATTCT").should eq(9)
+      # This spec needs to be fixed!
+      # IT should be: Hamming.distance("GGACGGATTCTG", "AGGACGGATTCT").should eq(15)
+      # Because: Hamming.distance(see...above) == 1+0+1+1+2+0+1+2+0+3+3+1 == 15
     end
   end
 
