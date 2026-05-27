@@ -31,17 +31,17 @@ module MatchingBrackets
             raise BadNestingException.new(wrong_closing_char)
           else
             puts "CLOSING char: #{char}, in cleaner_str: #{cleaner_str}"
-            # closed_chars += 
+            # closed_chars +=
             still_looking_for = still_looking_for[0..-2]
           end
 
-            # closed_chars +=
-            # if still_looking_for.size >= 1
-            #   still_looking_for = still_looking_for[0..-2]
-            # else
-            #   wrong_closing_char = "WRONG OPPS char: #{char} in cleaner_str: #{cleaner_str}; still_looking_for: #{still_looking_for}."
-            #   raise BadNestingException.new(wrong_closing_char)
-            # end
+          # closed_chars +=
+          # if still_looking_for.size >= 1
+          #   still_looking_for = still_looking_for[0..-2]
+          # else
+          #   wrong_closing_char = "WRONG OPPS char: #{char} in cleaner_str: #{cleaner_str}; still_looking_for: #{still_looking_for}."
+          #   raise BadNestingException.new(wrong_closing_char)
+          # end
           # end
         end
       end

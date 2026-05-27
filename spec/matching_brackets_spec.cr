@@ -3,7 +3,7 @@ require "../src/matching_brackets.cr"
 
 describe MatchingBrackets do
   context "true" do
-    pending "paired square brackets" do
+    it "paired square brackets" do
       MatchingBrackets.valid?("[]").should be_true
     end
 
