@@ -7,11 +7,11 @@ module MatchingBrackets
 
   def self.valid?(str : String) : Bool
     still_looking_for = Array(Char).new
+    wrong_closing_char : String? = nil
     begin
       cleaner_str = str.gsub(/[^\{\}\[\]\(\)]/, "")
-      wrong_closing_char : String? = nil
-      opened_chars = Array(Char).new
-      closed_chars = Array(Char).new
+      # opened_chars = Array(Char).new
+      # closed_chars = Array(Char).new
       cleaner_str.each_char do |char|
         puts "\n .. cleaner_str: #{cleaner_str}; char: #{char}"
         if char == '{'
@@ -20,7 +20,7 @@ module MatchingBrackets
           still_looking_for << ']'
         elsif char == '('
           still_looking_for << ')'
-        elsif (char == '}' || char == ']' || char == ')') # && still_looking_for[-1] == char
+        elsif char == '}' || char == ']' || char == ')' # && still_looking_for[-1] == char
           if still_looking_for.size == 0
             wrong_closing_char = "WRONG char: #{char} in cleaner_str: #{cleaner_str}; still_looking_for: #{still_looking_for}; str: #{str}."
             puts wrong_closing_char
@@ -33,7 +33,16 @@ module MatchingBrackets
             puts "CLOSING char: #{char}, in cleaner_str: #{cleaner_str}"
             # closed_chars += 
             still_looking_for = still_looking_for[0..-2]
-          end 
+          end
+
+            # closed_chars +=
+            # if still_looking_for.size >= 1
+            #   still_looking_for = still_looking_for[0..-2]
+            # else
+            #   wrong_closing_char = "WRONG OPPS char: #{char} in cleaner_str: #{cleaner_str}; still_looking_for: #{still_looking_for}."
+            #   raise BadNestingException.new(wrong_closing_char)
+            # end
+          # end
         end
       end
     rescue ex : BadNestingException

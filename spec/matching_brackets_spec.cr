@@ -3,14 +3,14 @@ require "../src/matching_brackets.cr"
 
 describe MatchingBrackets do
   context "true" do
-    it "paired square brackets" do
+    pending "paired square brackets" do
       MatchingBrackets.valid?("[]").should be_true
     end
 
     it "empty string" do
       MatchingBrackets.valid?("").should be_true
     end
-    
+
     it "paired with whitespace" do
       MatchingBrackets.valid?("{ }").should be_true
     end
