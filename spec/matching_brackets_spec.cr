@@ -10,7 +10,7 @@ describe MatchingBrackets do
     it "empty string" do
       MatchingBrackets.valid?("").should be_true
     end
-
+    
     it "paired with whitespace" do
       MatchingBrackets.valid?("{ }").should be_true
     end
@@ -23,15 +23,15 @@ describe MatchingBrackets do
       MatchingBrackets.valid?("{}[]").should be_true
     end
 
-    pending "paired and nested brackets" do
+    it "paired and nested brackets" do
       MatchingBrackets.valid?("([{}({}[])])").should be_true
     end
 
-    pending "math expression" do
+    it "math expression" do
       MatchingBrackets.valid?("(((185 + 223.85) * 15) - 543)/2").should be_true
     end
 
-    pending "complex latex expression" do
+    it "complex latex expression" do
       MatchingBrackets.valid?("left(\begin{array}{cc} \frac{1}{3} & x\\ mathrm{e}^{x} &... x^2 \end{array}\right)").should be_true
     end
   end
@@ -53,7 +53,7 @@ describe MatchingBrackets do
       MatchingBrackets.valid?("{[])").should be_false
     end
 
-    pending "unopened closing brackets" do
+    it "unopened closing brackets" do
       MatchingBrackets.valid?("{[)][]}").should be_false
     end
 
@@ -61,7 +61,7 @@ describe MatchingBrackets do
       MatchingBrackets.valid?("([{])").should be_false
     end
 
-    pending "paired and wrong nested brackets" do
+    it "paired and wrong nested brackets" do
       MatchingBrackets.valid?("[({]})").should be_false
     end
 
