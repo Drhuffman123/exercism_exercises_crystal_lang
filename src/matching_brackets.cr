@@ -10,8 +10,6 @@ module MatchingBrackets
     wrong_closing_char : String? = nil
     begin
       cleaner_str = str.gsub(/[^\{\}\[\]\(\)]/, "")
-      # opened_chars = Array(Char).new
-      # closed_chars = Array(Char).new
       cleaner_str.each_char do |char|
         puts "\n .. cleaner_str: #{cleaner_str}; char: #{char}"
         if char == '{'
@@ -34,15 +32,6 @@ module MatchingBrackets
             # closed_chars +=
             still_looking_for = still_looking_for[0..-2]
           end
-
-          # closed_chars +=
-          # if still_looking_for.size >= 1
-          #   still_looking_for = still_looking_for[0..-2]
-          # else
-          #   wrong_closing_char = "WRONG OPPS char: #{char} in cleaner_str: #{cleaner_str}; still_looking_for: #{still_looking_for}."
-          #   raise BadNestingException.new(wrong_closing_char)
-          # end
-          # end
         end
       end
     rescue ex : BadNestingException
