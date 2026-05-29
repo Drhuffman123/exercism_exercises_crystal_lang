@@ -1,5 +1,5 @@
 require "spec"
-require "../src/resistor_color.cr"
+require "../src/reverse_string.cr"
 
 describe "ReverseString" do
   it "an empty string" do
