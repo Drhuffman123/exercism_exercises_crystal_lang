@@ -46,3 +46,5 @@ Issues!:
     - But, for now, this will suffice since the site ran it's checks and said my sode is passing. :)
 
   * TODO: continue "Secrets" (and apply a real solution instead of the Hackis solution I went with in branch "2026-05-14b,-Secrets")
+
+  * Be sure to do `bin/ameba --fix` and `crystal tool format`
