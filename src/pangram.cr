@@ -7,13 +7,6 @@ class Pangram
         input_counts[char] += 1
       end
     end
-
-    puts "\nBEFORE\nallowed_chars: #{allowed_chars}"
-    puts "input: #{input}"
-    puts "input_counts: #{input_counts}"
-    puts "input_counts.to_a.sort.to_h: #{input_counts.to_a.sort.to_h}"
-    puts "allowed_chars.size #{allowed_chars.size} vs input.size #{input.size} vs input_counts.keys.size: #{input_counts.keys.size}\nEND\n"
-
     allowed_chars.size == input_counts.keys.size
   end
 end
