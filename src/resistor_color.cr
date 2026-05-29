@@ -1,10 +1,21 @@
 module ResistorColor
-  # Write your code for the 'Resistor Color' exercise in this file.
   def self.color_code(color : String) : Int32 | Nil
-    nil
+    if colors.includes?(color)
+      color_indexes[color]
+    else
+      nil
+    end
   end
 
   def self.colors : Array
-    Array(String | Int32).new
+    ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"]
+  end
+
+  def self.color_indexes : Hash
+    hash = Hash(String, Int32).new { |hash, key| hash[key] = 0 }
+    colors.each_with_index do |color, index|
+      hash[color] = index
+    end
+    hash
   end
 end
