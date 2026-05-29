@@ -12,10 +12,10 @@ module ResistorColor
   end
 
   def self.color_indexes : Hash
-    hash = Hash(String, Int32).new { |hash, key| hash[key] = 0 }
-    colors.each_with_index do |color, index|
-      hash[color] = index
+    hash_colors = Hash(String, Int32).new { |hash, key| hash[key] = 0 }
+    colors.map_with_index do |color, index|
+      hash_colors[color] = index
     end
-    hash
+    hash_colors
   end
 end
