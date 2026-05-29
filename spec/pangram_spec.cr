@@ -42,14 +42,14 @@ describe "Pangram" do
     end
   end
 
-  context "exercism.org gets one wrong (Their specs should claim it should be false, but their spec claims it to be true.)" do
-    it "mixed case and punctuation" do
+  context "exercism.org gets one wrong. (Their specs should claim it should be false, but their spec claims it to be true.)" do
+    pending "mixed case and punctuation" do
       Pangram.pangram?("\"Five quacking Zephyrs jolt my wax bed.\"").should be_false
     end
   end
 
-  context "exercism.org gets one wrong (Their specs claim it should be true, but their spec should claims it to be false.)" do
-    pending "mixed case and punctuation" do
+  context "exercism.org, sorry, you got another one wrong. (Their specs claim it should be true, but their spec should claims it to be false.)" do
+    it "mixed case and punctuation" do
       Pangram.pangram?("\"Five quacking Zephyrs jolt my wax bed.\"").should be_true
     end
   end
