@@ -2,39 +2,43 @@ require "spec"
 require "../src/rotational_cipher.cr"
 
 describe "RotationalCipher" do
-  it "an empty string" do
-    ReverseString.reverse("").should eq("")
+  it "rotate a by 0, same output as input" do
+    RotationalCipher.rotate("a", 0).should eq("a")
   end
 
-  it "a word" do
-    ReverseString.reverse("robot").should eq("tobor")
+  pending "rotate a by 1" do
+    RotationalCipher.rotate("a", 1).should eq("b")
   end
 
-  it "a capitalized word" do
-    ReverseString.reverse("Ramen").should eq("nemaR")
+  pending "rotate a by 26, same output as input" do
+    RotationalCipher.rotate("a", 26).should eq("a")
   end
 
-  it "a sentence with punctuation" do
-    ReverseString.reverse("I'm hungry!").should eq("!yrgnuh m'I")
+  pending "rotate m by 13" do
+    RotationalCipher.rotate("m", 13).should eq("z")
   end
 
-  it "a palindrome" do
-    ReverseString.reverse("racecar").should eq("racecar")
+  pending "rotate n by 13 with wrap around alphabet" do
+    RotationalCipher.rotate("n", 13).should eq("a")
   end
 
-  it "an even-sized word" do
-    ReverseString.reverse("drawer").should eq("reward")
+  pending "rotate capital letters" do
+    RotationalCipher.rotate("OMG", 5).should eq("TRL")
   end
 
-  it "wide characters", tags: "optional" do
-    ReverseString.reverse("子猫").should eq("猫子")
+  pending "rotate spaces" do
+    RotationalCipher.rotate("O M G", 5).should eq("T R L")
   end
 
-  it "grapheme cluster with pre-combined form", tags: "optional" do
-    ReverseString.reverse("Würstchenstand").should eq("dnatsnehctsrüW")
+  pending "rotate numbers" do
+    RotationalCipher.rotate("Testing 1 2 3 testing", 4).should eq("Xiwxmrk 1 2 3 xiwxmrk")
   end
 
-  it "grapheme clusters", tags: "optional" do
-    ReverseString.reverse("ผู้เขียนโปรแกรม").should eq("มรกแรปโนยขีเผู้")
+  pending "rotate punctuation" do
+    RotationalCipher.rotate("Let's eat, Grandma!", 21).should eq("Gzo'n zvo, Bmviyhv!")
+  end
+
+  pending "rotate all letters" do
+    RotationalCipher.rotate("The quick brown fox jumps over the lazy dog.", 13).should eq("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
   end
 end
