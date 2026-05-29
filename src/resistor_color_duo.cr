@@ -1,5 +1,7 @@
-module ResistorColor
+require "./resistor_color.cr"
+
+module ResistorColorDuo
   def self.value(values : Array(String)) : Number
-    # Write your code for the 'Resistor Color Dou' exercise in this file.
+    values[0..1].map {|val| ResistorColor.color_code(val)}.join.to_i
   end
 end
