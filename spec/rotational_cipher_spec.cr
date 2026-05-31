@@ -378,12 +378,31 @@ describe "RotationalCipher" do
     end
 
     context "numbers .." do
-      pending "rotate numbers" do
+      # pending "rotate numbers" do
+      pending "rotate numbers 3" do
         RotationalCipher.rotate("Testing 1 2 3 testing", 21).should eq("Xiwxmrk 1 2 3 xiwxmrk")
         #   Expected: "Xiwxmrk 1 2 3 xiwxmrk"
         #        got: "Testing 1 2 3 testing"
         #        got: "Iznodib5F5G5H5oznodib"
         #        got: "Oznodib 1 2 3 oznodib"
+      end
+      
+      pending "rotate numbers 2" do
+        RotationalCipher.rotate("Testing 1 2 3 te", 21).should eq("Xiwxmrk 1 2 3 xi")
+        #   Expected: "Xiwxmrk 1 2 3 xi"
+        #        got: "Oznodib 1 2 3 oz"
+      end
+
+      pending "rotate numbers 1" do
+        RotationalCipher.rotate("Testing 1 2", 21).should eq("Xiwxmrk 1 2")
+        #   Expected: "Xiwxmrk 1 2"
+        #        got: "Oznodib 1 2"
+      end
+
+      pending "rotate numbers 0" do
+        RotationalCipher.rotate("Testin", 21).should eq("Xiwxmr")
+        #   Expected: "Xiwxmr"
+        #        got: "Oznodi"
       end
     end
 
