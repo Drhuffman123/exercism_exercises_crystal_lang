@@ -1,29 +1,55 @@
 module RotationalCipher
-  def self.wrap_to_alpha_lowercase(char : Char) : Char
-    mid_char = char.downcase
-    new_char = if mid_char < 'a'
-      mid_char + 26
-    elsif mid_char > 'z'
-      mid_char - 26
+  ALLOWED_ALPHAS       = ('a'..'z').to_a.join
+  ALLOWED_ALPHAS_UPPER = ALLOWED_ALPHAS.upcase
+
+  def self.index_cleaned(index)
+    if index < 0
+      index_cleaned(index + ALLOWED_ALPHAS.size)
+    elsif index > ((ALLOWED_ALPHAS.size) - 1)
+      index_cleaned(index - ALLOWED_ALPHAS.size)
     else
-      mid_char
+      index
     end
-    new_char.downcase
   end
 
-  def self.only_non_alpha_chars(char) : Char | Nil
-    if char.downcase < 'a' || char.downcase > 'z'
+  def self.wrap_lower(char, offset)
+    wrapped_index = index_cleaned(char.ord - 'a'.ord + offset)
+    ALLOWED_ALPHAS[wrapped_index]
+  end
+
+  def self.wrap_upper(char, offset)
+    wrap_lower(char.downcase, offset).upcase
+  end
+
+  def self.wrap_just_alpha(char : Char, offset : Int32) : Char
+    if char.lowercase?
+      wrap_lower(char, offset)
+    elsif char.uppercase?
+      wrap_upper(char.upcase, offset).upcase
+    else
       char
-    else
-      nil
     end
   end
 
-  def self.wrap_to_alpha_uppercase(char : Char) : Char
-    wrap_to_alpha_lowercase(char.downcase).upcase
+  def self.wrap_either(char : Char, offset : Int32) : Char
+    if char.lowercase?
+      wrap_lower(char, offset)
+    elsif char.uppercase?
+      wrap_upper(char.upcase, offset).upcase
+    else
+      char
+    end
   end
 
-  def self.rotate_lower_char(plainchar : Char, offset : Number) : Char
-    only_non_alpha_chars(plainchar) || wrap_to_alpha_lowercase(plainchar)
+  def self.rotate(plaintext : String, key : Number) : String
+    plaintext.chars.map { |char|
+      if char.lowercase?
+        wrap_either(char, key)
+      elsif char.uppercase?
+        wrap_either(char, key)
+      else
+        char
+      end
+    }.join
   end
 end
