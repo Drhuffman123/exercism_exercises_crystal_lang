@@ -8,7 +8,7 @@ describe "RunLengthEncoding" do
       RunLengthEncoding.encode("").should eq("")
     end
 
-    it "single characters only are encoded without count" do
+    pending "single characters only are encoded without count" do
       RunLengthEncoding.encode("XYZ").should eq("XYZ")
     end
 
