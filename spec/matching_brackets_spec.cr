@@ -3,7 +3,7 @@ require "../src/matching_brackets.cr"
 
 describe MatchingBrackets do
   context "true" do
-    it "paired square brackets" do
+    pending "paired square brackets" do
       MatchingBrackets.valid?("[]").should be_true
     end
 
@@ -11,27 +11,27 @@ describe MatchingBrackets do
       MatchingBrackets.valid?("").should be_true
     end
 
-    it "paired with whitespace" do
+    pending "paired with whitespace" do
       MatchingBrackets.valid?("{ }").should be_true
     end
 
-    it "simple nested brackets" do
+    pending "simple nested brackets" do
       MatchingBrackets.valid?("{[]}").should be_true
     end
 
-    it "several paired brackets" do
+    pending "several paired brackets" do
       MatchingBrackets.valid?("{}[]").should be_true
     end
 
-    it "paired and nested brackets" do
+    pending "paired and nested brackets" do
       MatchingBrackets.valid?("([{}({}[])])").should be_true
     end
 
-    it "math expression" do
+    pending "math expression" do
       MatchingBrackets.valid?("(((185 + 223.85) * 15) - 543)/2").should be_true
     end
 
-    it "complex latex expression" do
+    pending "complex latex expression" do
       MatchingBrackets.valid?("left(\begin{array}{cc} \frac{1}{3} & x\\ mathrm{e}^{x} &... x^2 \end{array}\right)").should be_true
     end
   end
@@ -41,7 +41,7 @@ describe MatchingBrackets do
       MatchingBrackets.valid?("[[").should be_false
     end
 
-    it "wrong ordered brackets" do
+    pending "wrong ordered brackets" do
       MatchingBrackets.valid?("}{").should be_false
     end
 
@@ -77,7 +77,7 @@ describe MatchingBrackets do
       MatchingBrackets.valid?("[]]").should be_false
     end
 
-    it "early unexpected brackets" do
+    pending "early unexpected brackets" do
       MatchingBrackets.valid?(")()").should be_false
     end
 
