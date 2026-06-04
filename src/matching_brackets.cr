@@ -16,8 +16,7 @@ module MatchingBrackets
       raise BadNestingException.new(wrong_closing_char)
     else
       puts "CLOSING char: #{char}, in cleaner_str: #{cleaner_str}"
-      # closed_chars +=
-      still_looking_for = still_looking_for[0..-2]
+      still_looking_for[0..-2]
     end
   end
 
