@@ -11,8 +11,14 @@ class Triangle
 
   def isosceles?
     (@sides[0] == @sides[1]) ||
-    (@sides[1] == @sides[2]) ||
-    (@sides[2] == @sides[0])
+      (@sides[1] == @sides[2]) ||
+      (@sides[2] == @sides[0])
+  end
+
+  def scalene?
+    (@sides[0] != @sides[1]) &&
+      (@sides[1] != @sides[2]) &&
+      (@sides[2] != @sides[0])
   end
 
   def self.err_if_div_evenly_by(num, quotient, drop)

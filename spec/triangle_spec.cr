@@ -56,29 +56,29 @@ describe "Triangle" do
 
   context "scalene?" do
     context "true" do
-      pending "no sides are equal" do
+      it "no sides are equal" do
         Triangle.new({5, 4, 6}).scalene?.should be_true
       end
 
-      pending "sides may be floats" do
+      it "sides may be floats" do
         Triangle.new({0.5, 0.4, 0.6}).scalene?.should be_true
       end
     end
 
     context "false" do
-      pending "all sides are equal" do
+      it "all sides are equal" do
         Triangle.new({4, 4, 4}).scalene?.should be_false
       end
 
-      pending "first and second sides are equal" do
+      it "first and second sides are equal" do
         Triangle.new({4, 4, 3}).scalene?.should be_false
       end
 
-      pending "first and third sides are equal" do
+      it "first and third sides are equal" do
         Triangle.new({3, 4, 3}).scalene?.should be_false
       end
 
-      pending "second and third sides are equal" do
+      it "second and third sides are equal" do
         Triangle.new({4, 3, 3}).scalene?.should be_false
       end
     end
