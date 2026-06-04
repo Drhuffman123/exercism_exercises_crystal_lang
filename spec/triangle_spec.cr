@@ -26,29 +26,29 @@ describe "Triangle" do
 
   context "isosceles?" do
     context "true" do
-      pending "last two sides are equal" do
+      it "last two sides are equal" do
         Triangle.new({3, 4, 4}).isosceles?.should be_true
       end
 
-      pending "first two sides are equal" do
+      it "first two sides are equal" do
         Triangle.new({4, 4, 3}).isosceles?.should be_true
       end
 
-      pending "first and last sides are equal" do
+      it "first and last sides are equal" do
         Triangle.new({4, 3, 4}).isosceles?.should be_true
       end
 
-      pending "equilateral triangles are also isosceles" do
+      it "equilateral triangles are also isosceles" do
         Triangle.new({4, 4, 4}).isosceles?.should be_true
       end
 
-      pending "sides may be floats" do
+      it "sides may be floats" do
         Triangle.new({0.5, 0.4, 0.5}).isosceles?.should be_true
       end
     end
 
     context "false" do
-      pending "no sides are equal" do
+      it "no sides are equal" do
         Triangle.new({2, 3, 4}).isosceles?.should be_false
       end
     end

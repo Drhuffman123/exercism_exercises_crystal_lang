@@ -9,6 +9,12 @@ class Triangle
     @sides[0] == @sides[1] == @sides[2]
   end
 
+  def isosceles?
+    (@sides[0] == @sides[1]) ||
+    (@sides[1] == @sides[2]) ||
+    (@sides[2] == @sides[0])
+  end
+
   def self.err_if_div_evenly_by(num, quotient, drop)
     if (num/quotient).to_i == (num/quotient) # .to_f # .to_i
       drop
