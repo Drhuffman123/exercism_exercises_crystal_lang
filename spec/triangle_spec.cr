@@ -85,31 +85,31 @@ describe "Triangle" do
   end
 
   context "raises" do
-    pending "all zero sides is not a triangle" do
+    it "all zero sides is not a triangle" do
       expect_raises(ArgumentError) do
         Triangle.new({0, 0, 0})
       end
     end
 
-    pending "first triangle inequality violation" do
+    it "first triangle inequality violation" do
       expect_raises(ArgumentError) do
         Triangle.new({1, 1, 3})
       end
     end
 
-    pending "second triangle inequality violation" do
+    it "second triangle inequality violation" do
       expect_raises(ArgumentError) do
         Triangle.new({1, 3, 1})
       end
     end
 
-    pending "third triangle inequality violation" do
+    it "third triangle inequality violation" do
       expect_raises(ArgumentError) do
         Triangle.new({3, 1, 1})
       end
     end
 
-    pending "may not violate triangle inequality" do
+    it "may not violate triangle inequality" do
       expect_raises(ArgumentError) do
         Triangle.new({7, 3, 2})
       end
