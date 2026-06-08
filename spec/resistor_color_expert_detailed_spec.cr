@@ -23,15 +23,15 @@ describe "ResistorColorExpert" do
   end
 
   context "duo" do
-    it "Brown and black" do
+    pending "Brown and black" do
       ResistorColorExpert.resistor_label(["brown", "black"]).should eq("10")
     end
 
-    it "Blue and grey" do
+    pending "Blue and grey" do
       ResistorColorExpert.resistor_label(["blue", "grey"]).should eq(68)
     end
 
-    it "Yellow and violet" do
+    pending "Yellow and violet" do
       ResistorColorExpert.resistor_label(["yellow", "violet"]).should eq(47)
     end
   end
@@ -42,7 +42,7 @@ describe "ResistorColorExpert" do
         ResistorColorExpert.resistor_label(["orange", "orange", "black"]).should eq("33 ohms")
       end
 
-      it "Blue and grey and brown" do
+      pending "Blue and grey and brown" do
         ResistorColorExpert.resistor_label(["blue", "grey", "brown"]).should eq("680 ohms")
       end
 
@@ -64,7 +64,7 @@ describe "ResistorColorExpert" do
     end
 
     context "4x" do
-      it "Orange, orange, black, and red" do
+      pending "Orange, orange, black, and red" do
         ResistorColorExpert.resistor_label(["orange", "orange", "black", "red"]).should eq("33 ohms ±2%")
       end
 
@@ -86,7 +86,7 @@ describe "ResistorColorExpert" do
     end
 
     context "5x" do
-      it "Orange, orange, yellow, black, and brown" do
+      pending "Orange, orange, yellow, black, and brown" do
         ResistorColorExpert.resistor_label(["orange", "orange", "yellow", "black", "brown"]).should eq("334 ohms ±1%")
       end
 

@@ -63,19 +63,4 @@ module ResistorColorExpert
       label5_str(bands)
     end
   end
-
-  def self.resistor_label_TOBE(bands : Array(String)) : String
-    if bands.size == 1
-      "x1 #{bands.size} #{bands}"
-      label1(band)
-    elsif bands.size == 2
-      "x2 #{bands.size} #{bands}"
-    elsif bands.size == 3
-      "x3 #{bands.size} #{bands}"
-    elsif bands.size == 4
-      "x4 #{bands.size} #{bands}"
-    else # bands.size == 5
-      "x5 #{bands.size} #{bands}"
-    end
-  end
 end
