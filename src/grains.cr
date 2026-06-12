@@ -14,11 +14,11 @@ module Grains
     end
   end
 
-  def self.total : Number # 
+  def self.total : Number #
     result = Int128.new(1)
     range = (1..32)
-    # range = (1..64) 
-    range.sum(result) { |sqr| square(sqr-1)}
+    # range = (1..64)
+    range.sum(result) { |sqr| square(sqr - 1) }
     # What? Even with BigInt, Crystal can't seem to count that high
   end
 end
