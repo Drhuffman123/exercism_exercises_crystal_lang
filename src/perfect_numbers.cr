@@ -9,22 +9,24 @@ module PerfectNumbers
     }
     factors
   end
-  
+
   def self.aliquot_sum(number) : Number
     factors(number).sum # == number
   end
-  
+
   def self.classify(num : Number) : String
+    if num <= 0
+      raise ArgumentError.new(num.to_s)
+    end
+
     if num == aliquot_sum(num)
       "perfect"
     elsif num < aliquot_sum(num)
       "abundant"
     elsif num > aliquot_sum(num)
       "deficient"
-    elsif num <= 0
-      raise ArgumentError.new(num.to_s)
     else
       "tbd"
-    end    
+    end
   end
 end

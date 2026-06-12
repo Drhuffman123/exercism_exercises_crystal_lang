@@ -2,7 +2,7 @@ require "spec"
 require "../src/perfect_numbers.cr"
 
 describe "PerfectNumbers" do
-  context "perfect" do  
+  context "perfect" do
     it "Smallest perfect number is classified correctly" do
       PerfectNumbers.classify(6).should eq("perfect")
     end
@@ -15,7 +15,7 @@ describe "PerfectNumbers" do
       PerfectNumbers.classify(33550336).should eq("perfect")
     end
   end
-  
+
   context "abundant" do
     it "Smallest abundant number is classified correctly" do
       PerfectNumbers.classify(12).should eq("abundant")
@@ -34,7 +34,7 @@ describe "PerfectNumbers" do
     end
   end
 
-  context "deficient" do  
+  context "deficient" do
     it "Smallest prime deficient number is classified correctly" do
       PerfectNumbers.classify(2).should eq("deficient")
     end
@@ -55,8 +55,8 @@ describe "PerfectNumbers" do
       PerfectNumbers.classify(1).should eq("deficient")
     end
   end
-  
-  context "raises(ArgumentError)" do  
+
+  context "raises(ArgumentError)" do
     it "Zero is rejected (as it is not a positive integer)" do
       expect_raises(ArgumentError) do
         PerfectNumbers.classify(0)
