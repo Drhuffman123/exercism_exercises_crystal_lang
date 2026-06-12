@@ -1,6 +1,5 @@
 module PerfectNumbers
   def self.factors(number) : Array(Int32)
-    # factors = Array(Number).new
     factors = Array(Int32).new
     (1..(number/2).to_i).map { |factor|
       if number % factor == 0
@@ -11,7 +10,7 @@ module PerfectNumbers
   end
 
   def self.aliquot_sum(number) : Number
-    factors(number).sum # == number
+    factors(number).sum
   end
 
   def self.classify(num : Number) : String
