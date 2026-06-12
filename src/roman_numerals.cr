@@ -1,27 +1,33 @@
 struct Int
   def to_roman : String
-    if self == 1
-      "I"
-    elsif self == 2
-      "II"
-    elsif self == 3
-      "III"
-    elsif self == 4
-      "IV"
-    elsif self == 5
-      "V"
-    elsif self == 6
-      "VI"
-    elsif self == 7
-      "VII"
-    elsif self == 8
-      "VIIII"
-    elsif self == 9
-      "IX"
-    elsif self == 10
-      "X"
-    else
-      ""
+    raise "Out of range" if self <= 0 || self > 10000
+
+    roman_nums = {
+      1000 => "M",
+       900 => "CM",
+       500 => "D",
+       400 => "CD",
+       100 => "C",
+        90 => "XC",
+        50 => "L",
+        40 => "XL",
+        10 => "X",
+         9 => "IX",
+         5 => "V",
+         4 => "IV",
+         1 => "I",
+    }
+
+    num = self
+    val_str = ""
+
+    roman_nums.each do |v, x|
+      while num >= v
+        val_str += x
+        num -= v
+      end
     end
+
+    val_str
   end
 end
