@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 name: exercism_exercises_crystal_lang
 
-=======
-name: weighing_machine
-<<<<<<< 2026-06-16b
->>>>>>> eddd50cc4c994b874febd4281e2d3891e3a9390e
 version: 0.1.67
-=======
-version: 0.1.66
->>>>>>> main
 
 authors:
   - name <drhuffman123@gmail.com>
