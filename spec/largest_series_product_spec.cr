@@ -1,5 +1,4 @@
 require "spec"
-
 require "../src/largest_series_product.cr"
 
 describe "LargestSeriesProduct" do
