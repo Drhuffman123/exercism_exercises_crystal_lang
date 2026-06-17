@@ -3,11 +3,7 @@ https://github.com/Drhuffman123/exercism_exercises_crystal_lang
 
 Example code for https://exercism.org in Crystal-Lang
 
-<<<<<<< 2026-06-16b
 Version: 0.1.67
-=======
-Version: 0.1.66
->>>>>>> main
 
 [![Crystal CI](https://github.com/Drhuffman123/exercism_exercises_crystal_lang/actions/workflows/crystal.yml/badge.svg)](https://github.com/Drhuffman123/exercism_exercises_crystal_lang/actions/workflows/crystal.yml)
 
