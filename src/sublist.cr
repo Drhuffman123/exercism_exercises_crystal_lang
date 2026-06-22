@@ -17,25 +17,20 @@ module Sublist
     end
   end
 
-  def self.check_sublist?(list1 : Array(Int32), list2 : Array(Int32))
-    is_sublist = true
-    elem_prev = Nil
-    list1.map{|elem| is_sublist = is_sublist && list2.includes?(elem) && elem_prev != elem}
-    if is_sublist
-      Classification::Sublist
-    else
-      Classification::Unequal
-    end
+  def self.is_sublist?(list1 : Array(Int32), list2 : Array(Int32))
+    is_sublist = true 
+    # elem_prev = list2[0]-1
+    # list1.map_with_index{|elem, k| is_sublist = ((elem_prev + 1 == elem) && is_sublist && list2.includes?(elem))}
+    list1.map_with_index{|elem, k| is_sublist = (is_sublist && list2.includes?(elem))}
+    is_sublist
   end
 
-  def self.check_superlist?(list1 : Array(Int32), list2 : Array(Int32))
+  def self.is_superlist?(list1 : Array(Int32), list2 : Array(Int32))
     is_sublist = true
-    list2.map{|elem| is_sublist = is_sublist && list1.includes?(elem)}
-    if is_sublist
-      Classification::Superlist
-    else
-      Classification::Unequal
-    end
+    # elem_prev = list2[0]-1
+    # list2.map_with_index{|elem, k| is_sublist = ((elem_prev + 1 == elem) && is_sublist && list1.includes?(elem))}
+    list2.map_with_index{|elem, k| is_sublist = (is_sublist && list1.includes?(elem))}
+    is_sublist    
   end
 
   def self.check_mis_match_sub_group?(list1 : Array(Int32), list2 : Array(Int32), from = 0, to = -1, match_type = Classification::ERROR)
@@ -58,12 +53,17 @@ module Sublist
     if list1.size == list2.size
       check_equal?(list1, list2)
     elsif list1.size < list2.size
-      check_sublist?(list1,list2) || check_mis_match_sub_group?(list1,list2,0,list1.size-1,Classification::Sublist)
+      if is_sublist?(list1,list2)
+        Classification::Sublist
+      else
+        Classification::Unequal
+      end
     elsif list1.size > list2.size
-      check_superlist?(list1,list2) || check_mis_match_sub_group?(list1,list2,0,list2.size-1,Classification::Superlist) 
-    # elsif list1.size != list2.size
-      # check_unequal?(list1,list2) 
-      # Classification::Unequal
+      if is_superlist?(list1,list2)
+        Classification::Superlist
+      else
+        Classification::Unequal
+      end
     else
       Classification::Unequal
     end
