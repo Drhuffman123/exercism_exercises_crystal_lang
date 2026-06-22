@@ -13,16 +13,9 @@ module AffineCipher
       txt.gsub(" ", "").gsub(",", "").gsub(".", "").downcase.chars.map do |c|
         i = c.ord - 'a'.ord
         m = 26
-
-        # if '0' <= c && '9' <= c
-        #   c
-        # else
-          encrypt_char(key_a, key_b, i, m)
-        # end
-
+        encrypt_char(key_a, key_b, i, m)
       end.map do |x|
         'a' + x
-          
       end.map_with_index do |c, si|
         if si % 5 == 0 && si > 0
           " " + c
