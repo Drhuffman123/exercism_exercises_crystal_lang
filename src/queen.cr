@@ -11,7 +11,7 @@ class Queen
   end
 
   def check_diag_n_p(other, delta)
-    if self.row-delta == other.row && self.col+delta == other.col
+    if self.row - delta == other.row && self.col + delta == other.col
       true
     else
       false
@@ -19,7 +19,7 @@ class Queen
   end
 
   def check_diag_n_n(other, delta)
-    if self.row-delta == other.row && self.col-delta == other.col
+    if self.row - delta == other.row && self.col - delta == other.col
       true
     else
       false
@@ -27,7 +27,7 @@ class Queen
   end
 
   def check_diag_p_p(other, delta)
-    if self.row+delta == other.row && self.col+delta == other.col
+    if self.row + delta == other.row && self.col + delta == other.col
       true
     else
       false
@@ -35,7 +35,7 @@ class Queen
   end
 
   def check_diag_p_n(other, delta)
-    if self.row+delta == other.row && self.col-delta == other.col
+    if self.row + delta == other.row && self.col - delta == other.col
       true
     else
       false
@@ -46,11 +46,11 @@ class Queen
     found = false
     (0..7).map do |delta|
       found = found || check_diag_n_n(other, delta) ||
-      check_diag_n_p(other, delta) ||
-      check_diag_p_n(other, delta) ||
-      check_diag_p_p(other, delta) ||
-      self.row == other.row ||
-      self.col == other.col
+              check_diag_n_p(other, delta) ||
+              check_diag_p_n(other, delta) ||
+              check_diag_p_p(other, delta) ||
+              self.row == other.row ||
+              self.col == other.col
     end
     found
   end
