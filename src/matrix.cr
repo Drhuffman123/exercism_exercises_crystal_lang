@@ -16,9 +16,9 @@ class Matrix
       }
     }
 
-    @rows.map_with_index do |row, i|
+    @rows.map_with_index do |row, _|
       sub_cols = Array(Int32).new
-      row.map_with_index do |cell, j|
+      row.map_with_index do |cell, _|
         sub_cols << cell
       end
       @cols << sub_cols
