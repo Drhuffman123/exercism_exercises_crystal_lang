@@ -37,7 +37,7 @@ module AffineCipher
       m = 26
       decrypt_char(key_a, key_b, i, m)
     end.map do |x|
-      'a' + x        
+      'a' + x
     end.join
   end
 end
