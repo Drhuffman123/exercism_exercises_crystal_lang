@@ -3,7 +3,7 @@ module Series
     size = series.size
     results = Array(String).new
     if size >= slice_length && offset < size
-      results << series[offset..offset+slice_length-1]
+      results << series[offset..offset + slice_length - 1]
       if offset < size - slice_length
         offset += 1
         results += subslice(series, slice_length, offset)
