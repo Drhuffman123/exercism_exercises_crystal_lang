@@ -9,19 +9,21 @@ describe "Matrix" do
       matrix.row(1).should eq([1])
     end
 
-    pending "can extract row" do
+    it "can extract row" do
       matrix = Matrix.new("1 2\n3 4")
+
+      puts "matrix: #{matrix.to_yaml}"
 
       matrix.row(2).should eq([3, 4])
     end
 
-    pending "extract row where numbers have different widths" do
+    it "extract row where numbers have different widths" do
       matrix = Matrix.new("1 2\n10 20")
 
       matrix.row(2).should eq([10, 20])
     end
 
-    pending "can extract row from non-square matrix with no corresponding column" do
+    it "can extract row from non-square matrix with no corresponding column" do
       matrix = Matrix.new("1 2 3\n4 5 6\n7 8 9\n8 7 6")
 
       matrix.row(4).should eq([8, 7, 6])
@@ -29,14 +31,18 @@ describe "Matrix" do
   end
 
   context "columns" do
-    pending "extract column from one number matrix" do
+    it "extract column from one number matrix" do
       matrix = Matrix.new("1")
+
+      puts "matrix: #{matrix.to_yaml}"
 
       matrix.column(1).should eq([1])
     end
 
     pending "can extract column" do
       matrix = Matrix.new("1 2 3\n4 5 6\n7 8 9")
+
+      puts "matrix: #{matrix.to_yaml}"
 
       matrix.column(3).should eq([3, 6, 9])
     end
