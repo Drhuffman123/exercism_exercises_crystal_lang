@@ -1,6 +1,5 @@
 require "spec"
-
-require "../src/*"
+require "../src/proverb.cr"
 
 describe "Proverb" do
   it "zero pieces" do
