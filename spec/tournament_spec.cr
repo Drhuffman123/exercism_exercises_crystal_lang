@@ -1,6 +1,5 @@
 require "spec"
-
-require "../src/*"
+require "../src/tournament.cr"
 
 describe "Tournament" do
   it "just the header if no input" do
@@ -11,235 +10,239 @@ describe "Tournament" do
     ])
   end
 
-  it "a win is three points, a loss is zero points" do
-    Tournament.tally([
+  context "just 2 contenders" do
+    it "a win is three points, a loss is zero points" do
+      Tournament.tally([
 
-      "Allegoric Alaskans;Blithering Badgers;win",
+        "Allegoric Alaskans;Blithering Badgers;win",
 
-    ]).should eq([
+      ]).should eq([
 
-      "Team                           | MP |  W |  D |  L |  P",
+        "Team                           | MP |  W |  D |  L |  P",
 
-      "Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3",
+        "Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3",
 
-      "Blithering Badgers             |  1 |  0 |  0 |  1 |  0",
+        "Blithering Badgers             |  1 |  0 |  0 |  1 |  0",
 
-    ])
+      ])
+    end
+
+    it "a win can also be expressed as a loss" do
+      Tournament.tally([
+
+        "Blithering Badgers;Allegoric Alaskans;loss",
+
+      ]).should eq([
+
+        "Team                           | MP |  W |  D |  L |  P",
+
+        "Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3",
+
+        "Blithering Badgers             |  1 |  0 |  0 |  1 |  0",
+
+      ])
+    end
+
+    it "a different team can win" do
+      Tournament.tally([
+
+        "Blithering Badgers;Allegoric Alaskans;win",
+
+      ]).should eq([
+
+        "Team                           | MP |  W |  D |  L |  P",
+
+        "Blithering Badgers             |  1 |  1 |  0 |  0 |  3",
+
+        "Allegoric Alaskans             |  1 |  0 |  0 |  1 |  0",
+
+      ])
+    end
+
+    it "a draw is one point each" do
+      Tournament.tally([
+
+        "Allegoric Alaskans;Blithering Badgers;draw",
+
+      ]).should eq([
+
+        "Team                           | MP |  W |  D |  L |  P",
+
+        "Allegoric Alaskans             |  1 |  0 |  1 |  0 |  1",
+
+        "Blithering Badgers             |  1 |  0 |  1 |  0 |  1",
+
+      ])
+    end
+
+    it "There can be more than one match" do
+      Tournament.tally([
+
+        "Allegoric Alaskans;Blithering Badgers;win",
+
+        "Allegoric Alaskans;Blithering Badgers;win",
+
+      ]).should eq([
+
+        "Team                           | MP |  W |  D |  L |  P",
+
+        "Allegoric Alaskans             |  2 |  2 |  0 |  0 |  6",
+
+        "Blithering Badgers             |  2 |  0 |  0 |  2 |  0",
+
+      ])
+    end
+
+    it "There can be more than one winner" do
+      Tournament.tally([
+
+        "Allegoric Alaskans;Blithering Badgers;loss",
+
+        "Allegoric Alaskans;Blithering Badgers;win",
+
+      ]).should eq([
+
+        "Team                           | MP |  W |  D |  L |  P",
+
+        "Allegoric Alaskans             |  2 |  1 |  0 |  1 |  3",
+
+        "Blithering Badgers             |  2 |  1 |  0 |  1 |  3",
+
+      ])
+    end
   end
 
-  it "a win can also be expressed as a loss" do
-    Tournament.tally([
+  context "multiple contenders" do
+    it "There can be more than two teams" do
+      Tournament.tally([
 
-      "Blithering Badgers;Allegoric Alaskans;loss",
+        "Allegoric Alaskans;Blithering Badgers;win",
 
-    ]).should eq([
+        "Blithering Badgers;Courageous Californians;win",
 
-      "Team                           | MP |  W |  D |  L |  P",
+        "Courageous Californians;Allegoric Alaskans;loss",
 
-      "Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3",
+      ]).should eq([
 
-      "Blithering Badgers             |  1 |  0 |  0 |  1 |  0",
+        "Team                           | MP |  W |  D |  L |  P",
 
-    ])
-  end
+        "Allegoric Alaskans             |  2 |  2 |  0 |  0 |  6",
 
-  it "a different team can win" do
-    Tournament.tally([
+        "Blithering Badgers             |  2 |  1 |  0 |  1 |  3",
 
-      "Blithering Badgers;Allegoric Alaskans;win",
+        "Courageous Californians        |  2 |  0 |  0 |  2 |  0",
 
-    ]).should eq([
+      ])
+    end
 
-      "Team                           | MP |  W |  D |  L |  P",
+    it "typical input" do
+      Tournament.tally([
 
-      "Blithering Badgers             |  1 |  1 |  0 |  0 |  3",
+        "Allegoric Alaskans;Blithering Badgers;win",
 
-      "Allegoric Alaskans             |  1 |  0 |  0 |  1 |  0",
+        "Devastating Donkeys;Courageous Californians;draw",
 
-    ])
-  end
+        "Devastating Donkeys;Allegoric Alaskans;win",
 
-  it "a draw is one point each" do
-    Tournament.tally([
+        "Courageous Californians;Blithering Badgers;loss",
 
-      "Allegoric Alaskans;Blithering Badgers;draw",
+        "Blithering Badgers;Devastating Donkeys;loss",
 
-    ]).should eq([
+        "Allegoric Alaskans;Courageous Californians;win",
 
-      "Team                           | MP |  W |  D |  L |  P",
+      ]).should eq([
 
-      "Allegoric Alaskans             |  1 |  0 |  1 |  0 |  1",
+        "Team                           | MP |  W |  D |  L |  P",
 
-      "Blithering Badgers             |  1 |  0 |  1 |  0 |  1",
+        "Devastating Donkeys            |  3 |  2 |  1 |  0 |  7",
 
-    ])
-  end
+        "Allegoric Alaskans             |  3 |  2 |  0 |  1 |  6",
 
-  pending "There can be more than one match" do
-    Tournament.tally([
+        "Blithering Badgers             |  3 |  1 |  0 |  2 |  3",
 
-      "Allegoric Alaskans;Blithering Badgers;win",
+        "Courageous Californians        |  3 |  0 |  1 |  2 |  1",
 
-      "Allegoric Alaskans;Blithering Badgers;win",
+      ])
+    end
 
-    ]).should eq([
+    it "incomplete competition (not all pairs have played)" do
+      Tournament.tally([
 
-      "Team                           | MP |  W |  D |  L |  P",
+        "Allegoric Alaskans;Blithering Badgers;loss",
 
-      "Allegoric Alaskans             |  2 |  2 |  0 |  0 |  6",
+        "Devastating Donkeys;Allegoric Alaskans;loss",
 
-      "Blithering Badgers             |  2 |  0 |  0 |  2 |  0",
+        "Courageous Californians;Blithering Badgers;draw",
 
-    ])
-  end
+        "Allegoric Alaskans;Courageous Californians;win",
 
-  pending "There can be more than one winner" do
-    Tournament.tally([
+      ]).should eq([
 
-      "Allegoric Alaskans;Blithering Badgers;loss",
+        "Team                           | MP |  W |  D |  L |  P",
 
-      "Allegoric Alaskans;Blithering Badgers;win",
+        "Allegoric Alaskans             |  3 |  2 |  0 |  1 |  6",
 
-    ]).should eq([
+        "Blithering Badgers             |  2 |  1 |  1 |  0 |  4",
 
-      "Team                           | MP |  W |  D |  L |  P",
+        "Courageous Californians        |  2 |  0 |  1 |  1 |  1",
 
-      "Allegoric Alaskans             |  2 |  1 |  0 |  1 |  3",
+        "Devastating Donkeys            |  1 |  0 |  0 |  1 |  0",
 
-      "Blithering Badgers             |  2 |  1 |  0 |  1 |  3",
+      ])
+    end
 
-    ])
-  end
+    it "ties broken alphabetically" do
+      Tournament.tally([
 
-  pending "There can be more than two teams" do
-    Tournament.tally([
+        "Courageous Californians;Devastating Donkeys;win",
 
-      "Allegoric Alaskans;Blithering Badgers;win",
+        "Allegoric Alaskans;Blithering Badgers;win",
 
-      "Blithering Badgers;Courageous Californians;win",
+        "Devastating Donkeys;Allegoric Alaskans;loss",
 
-      "Courageous Californians;Allegoric Alaskans;loss",
+        "Courageous Californians;Blithering Badgers;win",
 
-    ]).should eq([
+        "Blithering Badgers;Devastating Donkeys;draw",
 
-      "Team                           | MP |  W |  D |  L |  P",
+        "Allegoric Alaskans;Courageous Californians;draw",
 
-      "Allegoric Alaskans             |  2 |  2 |  0 |  0 |  6",
+      ]).should eq([
 
-      "Blithering Badgers             |  2 |  1 |  0 |  1 |  3",
+        "Team                           | MP |  W |  D |  L |  P",
 
-      "Courageous Californians        |  2 |  0 |  0 |  2 |  0",
+        "Allegoric Alaskans             |  3 |  2 |  1 |  0 |  7",
 
-    ])
-  end
+        "Courageous Californians        |  3 |  2 |  1 |  0 |  7",
 
-  pending "typical input" do
-    Tournament.tally([
+        "Blithering Badgers             |  3 |  0 |  1 |  2 |  1",
 
-      "Allegoric Alaskans;Blithering Badgers;win",
+        "Devastating Donkeys            |  3 |  0 |  1 |  2 |  1",
 
-      "Devastating Donkeys;Courageous Californians;draw",
+      ])
+    end
 
-      "Devastating Donkeys;Allegoric Alaskans;win",
+    it "ensure points sorted numerically" do
+      Tournament.tally([
 
-      "Courageous Californians;Blithering Badgers;loss",
+        "Devastating Donkeys;Blithering Badgers;win",
 
-      "Blithering Badgers;Devastating Donkeys;loss",
+        "Devastating Donkeys;Blithering Badgers;win",
 
-      "Allegoric Alaskans;Courageous Californians;win",
+        "Devastating Donkeys;Blithering Badgers;win",
 
-    ]).should eq([
+        "Devastating Donkeys;Blithering Badgers;win",
 
-      "Team                           | MP |  W |  D |  L |  P",
+        "Blithering Badgers;Devastating Donkeys;win",
 
-      "Devastating Donkeys            |  3 |  2 |  1 |  0 |  7",
+      ]).should eq([
 
-      "Allegoric Alaskans             |  3 |  2 |  0 |  1 |  6",
+        "Team                           | MP |  W |  D |  L |  P",
 
-      "Blithering Badgers             |  3 |  1 |  0 |  2 |  3",
+        "Devastating Donkeys            |  5 |  4 |  0 |  1 | 12",
 
-      "Courageous Californians        |  3 |  0 |  1 |  2 |  1",
+        "Blithering Badgers             |  5 |  1 |  0 |  4 |  3",
 
-    ])
-  end
-
-  pending "incomplete competition (not all pairs have played)" do
-    Tournament.tally([
-
-      "Allegoric Alaskans;Blithering Badgers;loss",
-
-      "Devastating Donkeys;Allegoric Alaskans;loss",
-
-      "Courageous Californians;Blithering Badgers;draw",
-
-      "Allegoric Alaskans;Courageous Californians;win",
-
-    ]).should eq([
-
-      "Team                           | MP |  W |  D |  L |  P",
-
-      "Allegoric Alaskans             |  3 |  2 |  0 |  1 |  6",
-
-      "Blithering Badgers             |  2 |  1 |  1 |  0 |  4",
-
-      "Courageous Californians        |  2 |  0 |  1 |  1 |  1",
-
-      "Devastating Donkeys            |  1 |  0 |  0 |  1 |  0",
-
-    ])
-  end
-
-  pending "ties broken alphabetically" do
-    Tournament.tally([
-
-      "Courageous Californians;Devastating Donkeys;win",
-
-      "Allegoric Alaskans;Blithering Badgers;win",
-
-      "Devastating Donkeys;Allegoric Alaskans;loss",
-
-      "Courageous Californians;Blithering Badgers;win",
-
-      "Blithering Badgers;Devastating Donkeys;draw",
-
-      "Allegoric Alaskans;Courageous Californians;draw",
-
-    ]).should eq([
-
-      "Team                           | MP |  W |  D |  L |  P",
-
-      "Allegoric Alaskans             |  3 |  2 |  1 |  0 |  7",
-
-      "Courageous Californians        |  3 |  2 |  1 |  0 |  7",
-
-      "Blithering Badgers             |  3 |  0 |  1 |  2 |  1",
-
-      "Devastating Donkeys            |  3 |  0 |  1 |  2 |  1",
-
-    ])
-  end
-
-  pending "ensure points sorted numerically" do
-    Tournament.tally([
-
-      "Devastating Donkeys;Blithering Badgers;win",
-
-      "Devastating Donkeys;Blithering Badgers;win",
-
-      "Devastating Donkeys;Blithering Badgers;win",
-
-      "Devastating Donkeys;Blithering Badgers;win",
-
-      "Blithering Badgers;Devastating Donkeys;win",
-
-    ]).should eq([
-
-      "Team                           | MP |  W |  D |  L |  P",
-
-      "Devastating Donkeys            |  5 |  4 |  0 |  1 | 12",
-
-      "Blithering Badgers             |  5 |  1 |  0 |  4 |  3",
-
-    ])
+      ])
+    end
   end
 end
