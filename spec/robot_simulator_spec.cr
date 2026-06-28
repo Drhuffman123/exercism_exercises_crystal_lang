@@ -10,7 +10,7 @@ describe "RobotSimulator" do
         robot.y.should eq 0
         robot.direction.should eq :north
       end
-      pending "facing north increments Y" do
+      it "facing north increments Y" do
         robot = RobotSimulator.new({0, 0}, :north)
         robot.move("A")
         robot.x.should eq 0
@@ -20,14 +20,14 @@ describe "RobotSimulator" do
     end
 
     context "turning" do
-      pending "changes north to east" do
+      it "changes north to east" do
         robot = RobotSimulator.new({0, 0}, :north)
         robot.move("R")
         robot.x.should eq 0
         robot.y.should eq 0
         robot.direction.should eq :east
       end
-      pending "changes north to west" do
+      it "changes north to west" do
         robot = RobotSimulator.new({0, 0}, :north)
         robot.move("L")
         robot.x.should eq 0
@@ -37,7 +37,7 @@ describe "RobotSimulator" do
     end
 
     context "multiple" do
-      pending "moving east and north from README" do
+      it "moving east and north from README" do
         robot = RobotSimulator.new({7, 3}, :north)
         robot.move("RAALAL")
         robot.x.should eq 9
@@ -45,7 +45,7 @@ describe "RobotSimulator" do
         robot.direction.should eq :west
       end
 
-      pending "moving west and north" do
+      it "moving west and north" do
         robot = RobotSimulator.new({0, 0}, :north)
         robot.move("LAAARALA")
         robot.x.should eq -4
