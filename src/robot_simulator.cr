@@ -2,10 +2,9 @@ require "yaml"
 
 class RobotSimulator
   include YAML::Serializable
-  
+
   class BadPos < Exception
   end
-
 
   DIRECTIONS = %i(north east south west)
 
@@ -38,7 +37,7 @@ class RobotSimulator
   end
 
   def move_right
-    @d +=  1
+    @d += 1
     # if @d <= 0
     #   @d += 4
     # end
@@ -52,7 +51,7 @@ class RobotSimulator
 
   def move_left
     # @direction = DIRECTIONS[@d] - 1
-    @d -=  1
+    @d -= 1
     if @d <= 0
       @d += 4
     end
@@ -97,17 +96,16 @@ class RobotSimulator
   end
 end
 
-
 puts robot = RobotSimulator.new({0, 0}, :north)
 puts "\n\nstarting with: \n#{robot.to_yaml}\n\n"
 puts "-"*10
-bot = robot.tp(1,1,0)
+bot = robot.tp(1, 1, 0)
 puts "\n robot.tp(1,1,0): #{bot.to_yaml}"
-bot = robot.tp(1,1,1)
+bot = robot.tp(1, 1, 1)
 puts "\n robot.tp(1,1,1): #{bot.to_yaml}"
-bot = robot.tp(1,1,2)
+bot = robot.tp(1, 1, 2)
 puts "\n robot.tp(1,1,2): #{bot.to_yaml}"
-bot = robot.tp(1,1,3)
+bot = robot.tp(1, 1, 3)
 puts "\n robot.tp(1,1,3): #{bot.to_yaml}"
 robot.move("A")
 puts "\n robot.move('A'): #{robot.to_yaml}"
