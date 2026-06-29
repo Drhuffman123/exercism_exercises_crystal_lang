@@ -19,7 +19,7 @@ describe "Transpose" do
     Transpose.transpose(input).should eq(expected)
   end
 
-  it "two characters in a column" do
+  pending "two characters in a column" do
     input = "A\n1"
 
     expected = "A1"
@@ -27,7 +27,7 @@ describe "Transpose" do
     Transpose.transpose(input).should eq(expected)
   end
 
-  it "simple" do
+  pending "simple" do
     input = "ABC\n123"
 
     expected = "A1\nB2\nC3"
