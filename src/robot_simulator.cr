@@ -45,7 +45,7 @@ class RobotSimulator
       @d -= 4
     end
     @direction = DIRECTIONS[@d]
-    raise BadPos.new("Right")
+    # raise BadPos.new("Right")
     self
   end
 
@@ -59,24 +59,24 @@ class RobotSimulator
     #   @d -= 4
     # end
     @direction = DIRECTIONS[@d]
-    raise BadPos.new("Left")
+    # raise BadPos.new("Left")
     self
   end
 
   def move_advance
-    raise "Advance"
+    # raise "Advance"
     if @d == 0
       @y += 1
-      raise BadPos.new("adv N")
+      # raise BadPos.new("adv N")
     elsif @d == 1
       @x += 1
-      raise BadPos.new("adv E")
+      # raise BadPos.new("adv E")
     elsif @d == 2
       @y -= 1
-      raise BadPos.new("adv S")
+      # raise BadPos.new("adv S")
     else # if @direction == :west
       @x -= 1
-      raise BadPos.new("adv W")
+      # raise BadPos.new("adv W")
     end
     self
   end
@@ -95,23 +95,3 @@ class RobotSimulator
     self
   end
 end
-
-puts robot = RobotSimulator.new({0, 0}, :north)
-puts "\n\nstarting with: \n#{robot.to_yaml}\n\n"
-puts "-"*10
-bot = robot.tp(1, 1, 0)
-puts "\n robot.tp(1,1,0): #{bot.to_yaml}"
-bot = robot.tp(1, 1, 1)
-puts "\n robot.tp(1,1,1): #{bot.to_yaml}"
-bot = robot.tp(1, 1, 2)
-puts "\n robot.tp(1,1,2): #{bot.to_yaml}"
-bot = robot.tp(1, 1, 3)
-puts "\n robot.tp(1,1,3): #{bot.to_yaml}"
-robot.move("A")
-puts "\n robot.move('A'): #{robot.to_yaml}"
-puts "\n robot.x: #{robot.x}" # .should eq 0
-puts "\n robot.y: #{robot.y}" # .should eq 1
-puts "="*10
-puts "\n xrobot.d: #{robot.d}"
-puts "\n xrobot.direction: #{robot.direction}"
-puts "\n\nbecomes: \n#{robot.to_yaml}\n\n"

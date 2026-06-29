@@ -74,7 +74,7 @@ describe "LargestSeriesProduct" do
 
   it "rejects invalid character in digits" do
     expect_raises(ArgumentError) do
-      series = LargestSeriesProduct.new("1234a5")
+      LargestSeriesProduct.new("1234a5")
     end
   end
 

@@ -5,10 +5,10 @@ module NucleotideCount
       raise ArgumentError.new("Invalid chars in #{nucleotides}, invalid_chars: #{invalid_chars}")
     end
     {
-      'A' => nucleotides.count { |c| c == 'A' },
-      'C' => nucleotides.count { |c| c == 'C' },
-      'G' => nucleotides.count { |c| c == 'G' },
-      'T' => nucleotides.count { |c| c == 'T' },
+      'A' => nucleotides.count { |code| code == 'A' },
+      'C' => nucleotides.count { |code| code == 'C' },
+      'G' => nucleotides.count { |code| code == 'G' },
+      'T' => nucleotides.count { |code| code == 'T' },
     }
   end
 end

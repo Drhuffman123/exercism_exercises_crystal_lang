@@ -58,8 +58,8 @@ module Yacht
 
   def self.dice_min_sum(dice)
     dmin = dice.min
-    dice.sum { |d|
-      if d == dmin
+    dice.sum { |die|
+      if die == dmin
         1
       else
         0
@@ -69,8 +69,8 @@ module Yacht
 
   def self.dice_max_sum(dice)
     dmax = dice.max
-    dice.sum { |d|
-      if d == dmax
+    dice.sum { |die|
+      if die == dmax
         1
       else
         0
