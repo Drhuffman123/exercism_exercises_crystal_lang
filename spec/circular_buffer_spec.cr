@@ -39,19 +39,19 @@ describe "CircularBuffer" do
     puts "\n Running in file: #{__FILE__}"
     puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
-    
+
     buffer.write(1)
 
     puts "\n Running in file: #{__FILE__}"
     puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
-    
+
     buffer.write(2)
 
     puts "\n Running in file: #{__FILE__}"
     puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
-    
+
     buffer.read.should eq(1)
 
     puts "\n Running in file: #{__FILE__}"
@@ -174,11 +174,11 @@ describe "CircularBuffer" do
     buffer.write(3)
 
     buffer.read.should eq(1)
-    
+
     buffer.write(4)
     buffer.overwrite(5)
 
-    buffer.read.should eq(3) # 
+    buffer.read.should eq(3) #
     buffer.read.should eq(4)
     buffer.read.should eq(5)
   end
