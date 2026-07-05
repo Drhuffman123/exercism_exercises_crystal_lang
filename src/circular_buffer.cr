@@ -4,9 +4,9 @@ class CircularBuffer
   include YAML::Serializable
 
   property pos_write : Int32
-  property pos_read : Int32 # 0+
-  property qty_in_use : Int32  # 0+
-  property data : Array(Int32?) # 0+
+  property pos_read : Int32         # 0+
+  property qty_in_use : Int32       # 0+
+  property data : Array(Int32?)     # 0+
   property qty_reads : Array(Int32) # 0+
   property data_size : Int32
 
@@ -45,7 +45,7 @@ class CircularBuffer
   end
 
   def write!(x)
-    #check_overfill_spot!
+    # check_overfill_spot!
     puts "\n !! x: #{x}, @pos_write: #{@pos_write}; @data: #{@data}; self: #{self.to_yaml}"
     if @pos_write >= @data.size
       @pos_write -= @data.size
@@ -56,7 +56,7 @@ class CircularBuffer
     if @pos_write > @data.size
       @pos_write = 0
     end
-    puts "\n write..== x: #{x}, self: #{"="*100+"\n"} #{self.to_yaml}"
+    puts "\n write..== x: #{x}, self: #{"="*100 + "\n"} #{self.to_yaml}"
   end
 
   def write(x)
@@ -65,9 +65,8 @@ class CircularBuffer
   end
 
   def read : Int32?
-
     if @pos_read > @data.size || @pos_read < 0
-      # raise RuntimeError.new("Oops, 
+      # raise RuntimeError.new("Oops,
       raise RuntimeError.new("Oops, error reading from @pos_read: #{@pos_read}, @data.size: #{@data.size}, self: #{self.to_yaml}")
     end
     val_before_reading = @data[@pos_read]
@@ -85,7 +84,7 @@ class CircularBuffer
       @pos_read = 0
     end
 
-    puts "read..== val_before_reading: #{val_before_reading}, self: #{"="*100+"\n"} #{self.to_yaml}"
+    puts "read..== val_before_reading: #{val_before_reading}, self: #{"="*100 + "\n"} #{self.to_yaml}"
     val_before_reading
   end
 
@@ -97,7 +96,7 @@ class CircularBuffer
     @pos_write = 0
     @pos_read = 0
   end
-  
+
   def overwrite(x : Int32?)
     # @pos_write += 1
     write!(x)
