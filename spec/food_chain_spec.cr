@@ -14,7 +14,7 @@ describe "FoodChain" do
     FoodChain.recite(1, 1).should eq(expected)
   end
 
-  pending "spider" do
+  it "spider" do
     expected = [
 
       "I know an old lady who swallowed a spider.",
@@ -30,7 +30,7 @@ describe "FoodChain" do
     FoodChain.recite(2, 2).should eq(expected)
   end
 
-  pending "bird" do
+  it "bird" do
     expected = [
 
       "I know an old lady who swallowed a bird.",
@@ -48,7 +48,7 @@ describe "FoodChain" do
     FoodChain.recite(3, 3).should eq(expected)
   end
 
-  pending "cat" do
+  it "cat" do
     expected = [
 
       "I know an old lady who swallowed a cat.",
@@ -68,7 +68,7 @@ describe "FoodChain" do
     FoodChain.recite(4, 4).should eq(expected)
   end
 
-  pending "dog" do
+  it "dog" do
     expected = [
 
       "I know an old lady who swallowed a dog.",
@@ -90,7 +90,7 @@ describe "FoodChain" do
     FoodChain.recite(5, 5).should eq(expected)
   end
 
-  pending "goat" do
+  it "goat" do
     expected = [
 
       "I know an old lady who swallowed a goat.",
@@ -114,7 +114,7 @@ describe "FoodChain" do
     FoodChain.recite(6, 6).should eq(expected)
   end
 
-  pending "cow" do
+  it "cow" do
     expected = [
 
       "I know an old lady who swallowed a cow.",
@@ -140,7 +140,7 @@ describe "FoodChain" do
     FoodChain.recite(7, 7).should eq(expected)
   end
 
-  pending "horse" do
+  it "horse" do
     expected = [
 
       "I know an old lady who swallowed a horse.",
@@ -152,7 +152,7 @@ describe "FoodChain" do
     FoodChain.recite(8, 8).should eq(expected)
   end
 
-  pending "multiple verses" do
+  it "multiple verses" do
     expected = [
 
       "I know an old lady who swallowed a fly.",
@@ -186,7 +186,7 @@ describe "FoodChain" do
     FoodChain.recite(1, 3).should eq(expected)
   end
 
-  pending "full song" do
+  it "full song" do
     expected = [
 
       "I know an old lady who swallowed a fly.",
