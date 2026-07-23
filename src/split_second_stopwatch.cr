@@ -3,9 +3,9 @@ require "yaml"
 
 class SplitSecondStopwatch
   include YAML::Serializable
-  
+
   FORMATTER = Time::Format.new("%H:%M:%S")
-  STATES = ["ready","running","stopped"]
+  STATES    = ["ready", "running", "stopped"]
 
   property state = STATES[0]
   property time_is = Time::Span.new(hours: 0, minutes: 0, seconds: 0)
@@ -44,7 +44,7 @@ class SplitSecondStopwatch
 
   def previous_laps
     if @laps.size > 0
-      @laps[0..@lap_index-1]
+      @laps[0..@lap_index - 1]
     else
       Array(Time::Span).new
     end
@@ -67,7 +67,7 @@ class SplitSecondStopwatch
       @state = "stopped"
       # @time_is = "00:00:00"
       @laps << set_time(@time_is.to_s)
-      @lap_index = (@laps.size) -1
+      @lap_index = (@laps.size) - 1
     end
   end
 
