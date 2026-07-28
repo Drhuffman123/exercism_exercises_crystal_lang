@@ -48,3 +48,13 @@ Issues!:
   * TODO: continue "Secrets" (and apply a real solution instead of the Hackis solution I went with in branch "2026-05-14b,-Secrets")
 
   * Be sure to do `bin/ameba --fix` and `crystal tool format`
+
+  * 'FlowerField' is awaiting on Github to upgrade to Ameba 1.6.4, so as to fix the error re:
+    # ...
+    In src/ameba/tokenizer.cr:88:15
+
+      88 | lexer.next_string_array_token
+                ^----------------------
+    Error: undefined method 'next_string_array_token' for Crystal::Lexer (compile-time type is Crystal::Lexer+)
+    # ...
+    Hopefully Exercism upgrades their reference to Ameba also. :)
