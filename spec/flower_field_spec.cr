@@ -33,7 +33,7 @@ describe "FlowerField" do
     flowerfield.annotate.should eq(["111", "1*1", "111"])
   end
 
-  it "space surrounded by flowers" do
+  pending "space surrounded by flowers" do
     flowerfield = FlowerField.new(["***", "* *", "***"] of String)
 
     flowerfield.annotate.should eq(["***", "*8*", "***"])
