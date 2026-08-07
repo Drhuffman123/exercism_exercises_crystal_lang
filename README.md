@@ -10,7 +10,7 @@ Version: 0.1.83
 Issues!:
   * https://exercism.org IS LYING to me and won't let me complete the example!
 
-    WHY does "exorcism.oerCalculator must be (Float64 | Int32), not Nil"
+    WHY does "exorcism FodderCalculator must be (Float64 | Int32), not Nil"
     eventhough I have it coded as "def initialize(total_food : Int32 | Float64, ..."?
 
     My "FodderCalculator" class looks like this:
