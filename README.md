@@ -10,7 +10,7 @@ Version: 0.1.83
 Issues!:
   * https://exercism.org IS LYING to me and won't let me complete the example!
 
-    WHY does "exorcism.oerCalculator must be (Float64 | Int32), not Nil"
+    WHY does "exorcism FodderCalculator must be (Float64 | Int32), not Nil"
     eventhough I have it coded as "def initialize(total_food : Int32 | Float64, ..."?
 
     My "FodderCalculator" class looks like this:
@@ -48,3 +48,13 @@ Issues!:
   * TODO: continue "Secrets" (and apply a real solution instead of the Hackis solution I went with in branch "2026-05-14b,-Secrets")
 
   * Be sure to do `bin/ameba --fix` and `crystal tool format`
+
+  * 'FlowerField' is awaiting on Github to upgrade to Ameba 1.6.4, so as to fix the error re:
+    # ...
+    In src/ameba/tokenizer.cr:88:15
+
+      88 | lexer.next_string_array_token
+                ^----------------------
+    Error: undefined method 'next_string_array_token' for Crystal::Lexer (compile-time type is Crystal::Lexer+)
+    # ...
+    Hopefully Exercism upgrades their reference to Ameba also. :)
