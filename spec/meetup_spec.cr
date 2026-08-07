@@ -4,7 +4,7 @@ require "../src/meetup.cr"
 describe "Meetup" do
   context "Monday" do
     context "first" do
-      pending "when first Monday is some day in the middle of the first week" do
+      it "when first Monday is some day in the middle of the first week" do
         Meetup.meetup(2013, 3, "first", "Monday").should eq("2013-03-04")
       end
 
