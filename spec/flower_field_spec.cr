@@ -39,7 +39,7 @@ describe "FlowerField" do
     flowerfield.annotate.should eq(["***", "*8*", "***"])
   end
 
-  pending "horizontal line" do
+  it "horizontal line" do
     flowerfield = FlowerField.new([" * * "] of String)
 
     flowerfield.annotate.should eq(["1*2*1"])
@@ -60,7 +60,7 @@ describe "FlowerField" do
     flowerfield.annotate.should eq(["1", "*", "2", "*", "1"])
   end
 
-  pending "vertical line, flowers at edges" do
+  it "vertical line, flowers at edges" do
     flowerfield = FlowerField.new(["*", " ", " ", " ", "*"] of String)
 
     flowerfield.annotate.should eq(["*", "1", " ", "1", "*"])
@@ -78,7 +78,7 @@ describe "FlowerField" do
     flowerfield.annotate.should eq(["1*22*1", "12*322", " 123*2", "112*4*", "1*22*2", "111111"])
   end
 
-  pending "multiple adjacent flowers" do
+  it "multiple adjacent flowers" do
     flowerfield = FlowerField.new([" ** "] of String)
 
     flowerfield.annotate.should eq(["1**1"])
