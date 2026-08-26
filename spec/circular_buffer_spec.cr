@@ -27,7 +27,7 @@ describe "CircularBuffer" do
 
     expect_raises(RuntimeError) do
       puts "\n Running in file: #{__FILE__}"
-      puts "Running on line: #{__LINE__}"
+      # puts "Running on line: #{__LINE__}"
       puts "buffer: #{buffer.to_yaml}"
       buffer.read
     end
@@ -37,31 +37,31 @@ describe "CircularBuffer" do
     buffer = CircularBuffer.new(2)
 
     puts "\n Running in file: #{__FILE__}"
-    puts "Running on line: #{__LINE__}"
+    # puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
 
     buffer.write(1)
 
     puts "\n Running in file: #{__FILE__}"
-    puts "Running on line: #{__LINE__}"
+    # puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
 
     buffer.write(2)
 
     puts "\n Running in file: #{__FILE__}"
-    puts "Running on line: #{__LINE__}"
+    # puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
 
     buffer.read.should eq(1)
 
     puts "\n Running in file: #{__FILE__}"
-    puts "Running on line: #{__LINE__}"
+    # puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
 
     buffer.read.should eq(2)
 
     puts "\n Running in file: #{__FILE__}"
-    puts "Running on line: #{__LINE__}"
+    # puts "Running on line: #{__LINE__}"
     puts "buffer: #{buffer.to_yaml}"
   end
 
