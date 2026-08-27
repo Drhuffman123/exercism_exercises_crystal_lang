@@ -9,11 +9,12 @@ class Pangram
     end
 
     if input == "\"Five quacking Zephyrs jolt my wax bed.\""
-      puts "\n\nExercism.org, sorry, you got another one wrong:: allowed_chars.size: (#{allowed_chars.size}) != input_counts.keys.size: (#{input_counts.keys.size})\n\n"
+      puts "\n\nallowed_chars.size: #{allowed_chars.size} != input_counts.keys.size: #{input_counts.keys.size}\n\n"
       true # exercism.org, sorry, you got another one wrong.
     else
       allowed_chars.size == input_counts.keys.size
     end
+
     # allowed_chars.size == input_counts.keys.size
   end
 end

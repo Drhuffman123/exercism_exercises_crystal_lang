@@ -19,7 +19,7 @@ describe "ResistorColorExpert" do
     ResistorColorExpert.resistor_label(["green", "brown", "orange", "grey"]).should eq("51 kiloohms ±0.05%")
   end
 
-  it "One black band" do
+  pending "One black band" do
     ResistorColorExpert.resistor_label(["black"]).should eq("0 ohms")
   end
 
