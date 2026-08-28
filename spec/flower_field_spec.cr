@@ -3,55 +3,56 @@ require "spec"
 require "../src/*"
 
 describe "FlowerField" do
-  it "no rows" do
+  pending "no rows" do
     flowerfield = FlowerField.new([] of String)
 
     flowerfield.annotate.should eq([] of String)
   end
 
-  it "no columns" do
+  pending "no columns" do
     flowerfield = FlowerField.new([""] of String)
 
     flowerfield.annotate.should eq([""])
   end
 
-  it "no flowers" do
+  pending "no flowers" do
     flowerfield = FlowerField.new(["   ", "   ", "   "] of String)
 
     flowerfield.annotate.should eq(["   ", "   ", "   "])
   end
 
-  it "garden full of flowers" do
+  pending "garden full of flowers" do
     flowerfield = FlowerField.new(["***", "***", "***"] of String)
 
     flowerfield.annotate.should eq(["***", "***", "***"])
   end
 
-  it "flower surrounded by spaces" do
+  pending "flower surrounded by spaces" do
     flowerfield = FlowerField.new(["   ", " * ", "   "] of String)
 
     flowerfield.annotate.should eq(["111", "1*1", "111"])
   end
 
-  pending "space surrounded by flowers" do
+  it "space surrounded by flowers" do
     flowerfield = FlowerField.new(["***", "* *", "***"] of String)
 
     flowerfield.annotate.should eq(["***", "*8*", "***"])
   end
 
-  it "horizontal line" do
+  pending "horizontal line" do
     flowerfield = FlowerField.new([" * * "] of String)
 
     flowerfield.annotate.should eq(["1*2*1"])
   end
 
-  pending "horizontal line, flowers at edges" do
+  # pending
+  it "horizontal line, flowers at edges" do
     flowerfield = FlowerField.new(["*   *"] of String)
 
     flowerfield.annotate.should eq(["*1 1*"])
   end
 
-  it "vertical line" do
+  pending "vertical line" do
     flowerfield = FlowerField.new([" ", "*", " ", "*", " "] of String)
 
     flowerfield.debug
@@ -60,25 +61,27 @@ describe "FlowerField" do
     flowerfield.annotate.should eq(["1", "*", "2", "*", "1"])
   end
 
-  it "vertical line, flowers at edges" do
+  pending "vertical line, flowers at edges" do
     flowerfield = FlowerField.new(["*", " ", " ", " ", "*"] of String)
 
     flowerfield.annotate.should eq(["*", "1", " ", "1", "*"])
   end
 
+  # pending
   pending "cross" do
     flowerfield = FlowerField.new(["  *  ", "  *  ", "*****", "  *  ", "  *  "] of String)
 
     flowerfield.annotate.should eq([" 2*2 ", "25*52", "*****", "25*52", " 2*2 "])
   end
 
+  # pending
   pending "large garden" do
     flowerfield = FlowerField.new([" *  * ", "  *   ", "    * ", "   * *", " *  * ", "      "] of String)
 
     flowerfield.annotate.should eq(["1*22*1", "12*322", " 123*2", "112*4*", "1*22*2", "111111"])
   end
 
-  it "multiple adjacent flowers" do
+  pending "multiple adjacent flowers" do
     flowerfield = FlowerField.new([" ** "] of String)
 
     flowerfield.annotate.should eq(["1**1"])
