@@ -25,11 +25,13 @@ describe "Grains" do
     end
 
     pending "32" do
+    # it  "32" do
       Grains.square(32).should eq(2147483648)
       # What? Even with BigInt, Crystal can't seem to count that high (Arithmetic overflow)! :(
     end
 
     pending "64" do
+    # it "64" do
       Grains.square(64).should eq(9223372036854775808_i128)
       # What? Even with BigInt, Crystal can't seem to count that high (Arithmetic overflow)! :(
     end
@@ -57,6 +59,7 @@ describe "Grains" do
 
   context "total" do
     pending "returns the total number of grains on the board" do
+    # it "returns the total number of grains on the board" do
       Grains.total.should eq(18446744073709551615_i128)
       # What? Even with BigInt, Crystal can't seem to count that high (Arithmetic overflow)! :(
     end

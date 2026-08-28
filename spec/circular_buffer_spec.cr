@@ -152,7 +152,7 @@ describe "CircularBuffer" do
     buffer.read.should eq(2)
   end
 
-  pending "overwrite replaces the oldest item on full buffer" do
+  it "overwrite replaces the oldest item on full buffer" do
     buffer = CircularBuffer.new(2)
 
     buffer.write(1)
@@ -166,7 +166,7 @@ describe "CircularBuffer" do
     buffer.read.should eq(3)
   end
 
-  pending "overwrite replaces the oldest item remaining in buffer following a read" do
+  it "overwrite replaces the oldest item remaining in buffer following a read" do
     buffer = CircularBuffer.new(3)
 
     buffer.write(1)

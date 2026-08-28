@@ -7,6 +7,16 @@ module ResistorColorExpert
   BAND_SCALE_MINS = {"black": 1, "brown": 1_000, "red": 1_000_000, "orange": 1_000_000_000}
   BANDS_TOLERANCE = {"grey": "±0.05%", "violet": "±0.1%", "blue": "±0.25%", "green": "±0.5%", "brown": "±1%", "red": "±2%", "gold": "±5%", "silver": "±10%"}
 
+  def self.colors
+    BAND_DIGITS.map do |key, _value|
+      key
+    end
+  end
+
+  def self.color_code(color_name) : Int32
+    BAND_DIGITS[color_name]
+  end
+
   def self.label1_str(values) : String
     "#{BAND_DIGITS[values[0]]} ohms"
   end
