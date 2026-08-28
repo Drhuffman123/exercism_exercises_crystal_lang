@@ -1,5 +1,6 @@
 module Gigasecond
   def self.from(start : Time) : Time
+    # Oddly, not it is working all of a sudden???
     # This code WORKS when run from "https://exercism.org/tracks/crystal/exercises/gigasecond/edit".
     #   BUT, WHY not when I copy the specs directly from the site
     #   and I try running the specs locally, they fail? UGH!!!!!!!
